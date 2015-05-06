@@ -50,6 +50,14 @@ ___
 * Русский
 
 
+___
+
+
+### Autor
+
+[Sergej Müller](http://sergejmueller.me)
+
+
 ### Unterstützer
 
 * [Caspar Hübinger](http://glueckpress.com)
@@ -60,15 +68,3 @@ ___
 
 * [Wiki](https://github.com/sergejmueller/snitch/wiki) *(Dokumentation)*
 * [Changelog](https://github.com/sergejmueller/snitch/blob/master/CHANGELOG.md)
-
-
----
-
-
-### Impressum
-
-[Sergej Müller](http://wpcoder.de)
-
-Gustav-Strobel-Ring 90 • 25421 Pinneberg • hello ÄT wpcoder PUNKT de
-
-[Twitter](https://twitter.com/wpSEO) • [Google+](https://plus.google.com/110569673423509816572) / [Flattr](https://flattr.com/thing/148966/) • [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZAQUT9RLPW8QN)
