@@ -5,7 +5,7 @@ Description: Network monitor for WordPress. Connection overview for monitoring a
 Text Domain: snitch
 Domain Path: /lang
 Author: Sergej M&uuml;ller
-Author URI: http://wpcoder.de
+Author URI: https://sergejmueller.github.io
 Plugin URI: https://wordpress.org/extend/plugins/snitch/
 License: GPLv3 or later
 Version: 1.1.5
