@@ -1,6 +1,11 @@
 # Snitch changelog
 
 
+## 1.1.5 / 06.05.2015
+
+* [GitHub Repository](https://github.com/sergejmueller/snitch) und [Wiki](https://github.com/sergejmueller/snitch/wiki)
+
+
 ## 1.1.4 / 21.04.2015
 
 * Unterstützung für WordPress 4.2

@@ -18,6 +18,9 @@ Network monitor for WordPress. Connection overview for monitoring and controllin
 
 Network monitor for WordPress with connection overview for controlling and regulating data traffic from your site.
 
+> For German users: [Beschreibung](https://github.com/sergejmueller/snitch) und [Dokumentation](https://github.com/sergejmueller/snitch/wiki) in Deutsch
+
+
 = Trust, But Verify =
 
 *Snitch* monitors and logs the outgoing data stream of your WordPress site. It records every outbound connection from WordPress and provides a log table for administrators.
@@ -28,7 +31,7 @@ Network monitor for WordPress with connection overview for controlling and regul
 
 
 = Summary =
-*Snitch* writes a log of both authorized and blocked attempts of connectivity. An overall view provides transparency and lets you control outgoing connections initialized by plugins, themes, or WordPress. Further info and answers to frequently asked questions can be found in the [Snitch Handbook (German)](http://playground.ebiene.de/snitch-wordpress-netzwerkmonitor/).
+*Snitch* writes a log of both authorized and blocked attempts of connectivity. An overall view provides transparency and lets you control outgoing connections initialized by plugins, themes, or WordPress.
 
 = In A Nutshell =
 * neat interface
@@ -42,43 +45,37 @@ Network monitor for WordPress with connection overview for controlling and regul
 * free of charge, no advertising
 
 
+= Requirements =
+* PHP 5.2.4
+* WordPress 3.8
+
+
 = Memory Usage =
-* Back-end: ~ 0,32 MB
-* Front-end: ~ 0,27 MB
+* Backend: ~ 0,32 MB
+* Frontend: ~ 0,27 MB
 
 
-= Available Languages =
+= Languages =
+* German
 * English
-* Deutsch
 * Русский
 
 
-= System Requirements =
-* WordPress 3.8 and higher
-* PHP 5.2.4 and newer
-
-
-= Donations =
-* Via [Flattr](https://flattr.com/t/1628977)
-* Via [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZAQUT9RLPW8QN)
-
-
-= Handbook =
-* [Snitch: Netzwerkmonitor für WordPress (German)](http://playground.ebiene.de/snitch-wordpress-netzwerkmonitor/)
-
-
-= Translators =
-* English: [Caspar Hübinger](http://glueckpress.com)
-* Russian: [Sergej Müller](http://wpcoder.de)
+= Contributors =
+* [Caspar Hübinger](http://glueckpress.com)
+* [Bego Mario Garde](https://garde-medienberatung.de)
 
 
 = Author =
 * [Twitter](https://twitter.com/wpSEO)
 * [Google+](https://plus.google.com/110569673423509816572)
-* [Plugins](http://wpcoder.de)
+* [Plugins](http://wpcoder.de "WordPress Plugins")
 
 
 == Changelog ==
+
+= 1.1.5 / 06.05.2015 =
+* [GitHub Repository](https://github.com/sergejmueller/snitch)
 
 = 1.1.4 =
 * Support for WordPress 4.2

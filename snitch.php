@@ -8,7 +8,7 @@ Author: Sergej M&uuml;ller
 Author URI: http://wpcoder.de
 Plugin URI: https://wordpress.org/extend/plugins/snitch/
 License: GPLv3 or later
-Version: 1.1.4
+Version: 1.1.5
 */
 
 /*

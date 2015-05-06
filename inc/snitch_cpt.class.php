@@ -439,7 +439,7 @@ class Snitch_CPT
 	* @since   0.0.2
 	* @change  0.0.3
 	*
-	* @hook    array  snitch_manage_columns
+	* @hook    array  snitch_sortable_columns
 	*
 	* @return  array  $columns  Array mit Spalten
 	*/
@@ -447,7 +447,7 @@ class Snitch_CPT
 	public static function sortable_columns()
 	{
 		return (array)apply_filters(
-			'snitch_manage_columns',
+			'snitch_sortable_columns',
 			array(
 				'url'     => 'url',
 				'file'    => 'file',
@@ -973,7 +973,7 @@ class Snitch_CPT
 	* Erweitert die sekundäre Links-Leiste
 	*
 	* @since   0.0.4
-	* @change  1.1.1
+	* @change  1.1.5
 	*
 	* @param   array  $views  Array mit verfügbaren Links
 	* @return  array  $views  Array mit modifizierten Links
@@ -981,10 +981,16 @@ class Snitch_CPT
 
 	public static function views_edit($views)
 	{
-		return array(
-			'paypal'	=> '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=ZAQUT9RLPW8QN" target="_blank">PayPal</a>',
-			'flattr'	=> '<a href="https://flattr.com/t/1628977" target="_blank">Flattr</a>'
+		$links = array(
+			'paypal' => '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=ZAQUT9RLPW8QN" target="_blank">PayPal</a>',
+			'flattr' => '<a href="https://flattr.com/t/1628977" target="_blank">Flattr</a>'
 		);
+
+		if ( strpos(get_locale(), 'de') !== false ) {
+			$links['wiki'] = '<a href="https://github.com/sergejmueller/snitch/wiki" target="_blank">Wiki</a>';
+		}
+
+		return $links;
 	}
 
 
