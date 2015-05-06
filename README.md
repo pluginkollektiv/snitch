@@ -55,7 +55,7 @@ ___
 
 ### Autor
 
-[Sergej Müller](http://sergejmueller.me)
+* [Sergej Müller](http://sergejmueller.me)
 
 
 ### Unterstützer
