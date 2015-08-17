@@ -1,4 +1,14 @@
-# Snitch
+# Snitch #
+
+* Contributors:      pluginkollektiv
+* Donate link:       https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LG5VC9KXMAYXJ
+* Tags:              sniffer, snitch, network, monitoring, firewall
+* Requires at least: 3.8
+* Tested up to:      4.3
+* Stable tag:        trunk
+* License:           GPLv3 or later
+* License URI:       https://www.gnu.org/licenses/gpl-3.0.html
+
 
 Vertrauen ist gut, Kontrolle ist besser: Verbindungsübersicht zur Überwachung und Steuerung des Datenverkehrs im WordPress-Projekt.
 
@@ -53,9 +63,9 @@ ___
 ___
 
 
-### Autor
-
-* [Sergej Müller](https://sergejmueller.github.io)
+### Credits ###
+* Author: [Sergej Müller](https://sergejmueller.github.io/)
+* Maintainers: [pluginkollektiv](http://pluginkollektiv.org/)
 
 
 ### Unterstützer
@@ -66,5 +76,5 @@ ___
 
 ### Links
 
-* [Wiki](https://github.com/sergejmueller/snitch/wiki) *(Dokumentation)*
-* [Changelog](https://github.com/sergejmueller/snitch/blob/master/CHANGELOG.md)
+* [Wiki](https://github.com/pluginkollektiv/snitch/wiki) *(Dokumentation)*
+* [Changelog](https://github.com/pluginkollektiv/snitch/blob/master/CHANGELOG.md)
