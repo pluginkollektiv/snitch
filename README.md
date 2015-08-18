@@ -1,6 +1,6 @@
 # Snitch #
-
 * Contributors:      pluginkollektiv
+* Tags:              sniffer, snitch, network, monitoring, firewall
 * Donate link:       https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LG5VC9KXMAYXJ
 * Tags:              sniffer, snitch, network, monitoring, firewall
 * Requires at least: 3.8
@@ -10,71 +10,144 @@
 * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
 
 
-Vertrauen ist gut, Kontrolle ist besser: Verbindungsübersicht zur Überwachung und Steuerung des Datenverkehrs im WordPress-Projekt.
-
-*Snitch* - vom Englischen übersetzt *Petze*, *Spitzel*, *Plaudertasche* - überwacht und protokolliert den ausgehenden Datenstrom in WordPress. Jede Verbindung aus WordPress heraus wird aufgezeichnet und Administratoren in tabellarischer Form zur Verfügung gestellt.
-
-Verbindungsanfragen werden seitens *Snitch* nicht nur mitgeschrieben, auch können zukünftige Versuche blockiert werden: Wahlweise abhängig von der Ziel-URL (Internet-Adresse, die im Hintergrund aufgerufen wird) oder aber vom ausgeführten Skript (Datei, die die Verbindung angefordert hat). Blockierte Verbindungen hebt das WordPress-Plugin visuell hervor. Bereits gesperrte Einträge können per Klick freigegeben werden.
-
-*Snitch* ist perfektes Werkzeug fürs „Mithören“ der Kommunikation nach „Außen“. Auch geeignet für die Früherkennung von in WordPress eingeschmuggelter Malware und Tracking-Software.
+Network monitor for WordPress. Connection overview for monitoring and controlling outgoing data traffic.
 
 
-> _Snitch_ im offiziellen WordPress-Pluginverzeichnis: [https://wordpress.org/plugins/snitch/](https://wordpress.org/plugins/snitch/)
+## Description ##
+Network monitor for WordPress with connection overview for controlling and regulating data traffic from your site.
+
+> #### Auf Deutsch? ####
+> Für eine ausführliche Dokumentation besuche bitte das [Wiki](https://github.com/pluginkollektiv/snitch/wiki).
+>
+> **Community-Support auf Deutsch** erhältst du in einem der [deutschsprachigen Foren](https://de.forums.wordpress.org/forum/plugins); im [Plugin-Forum für Snitch](https://wordpress.org/support/plugin/snitch) wird, wie in allen Plugin-Foren auf wordpress.org, ausschließlich **Englisch** gesprochen.
 
 
-## Vorteile
+### Trust, But Verify ###
+*Snitch* monitors and logs the outgoing data stream of your WordPress site. It records every outbound connection from WordPress and provides a log table for administrators.
 
-* Übersichtliche Oberfläche
-* Anzeige der Ziel-URL und Ursprungsdatei
-* Gruppierung, Sortierung und Durchsuchen
-* Optische Hervorhebung geblockter Anfragen
-* POST-Daten per Klick anzeigbar
-* Blockieren/Freigabe der Verbindungen nach Domain/Datei
-* Überwachung der Kommunikation im Backend und Frontend
-* Löschung aller Einträge per Knopfdruck
-* Kosten- und werbefrei
+*Snitch* does not only log connection requests, but enables you to block future requests either by target URL (internet address being called in the background), or by script (file being executed to open up a connection). Once blocked, a  connection will be visually highlighted. Blocked entries can be unblocked with a simple click.
+
+*Snitch* is a perfect tool to “listen in” on outbound communication. It is also suitable to early recognize any malware and tracking software installed.
 
 
-## Zusammenfassung
-
-*Snitch* führt ein Logbuch mit allen autorisierten und blockierten Versuchen der Konnektivität. Die Übersicht verschafft Transparenz und Kontrolle über ausgehende Verbindungen, die von Plugins, Themes und WordPress selbst ausgelöst wurden.
-
-___
+### Summary ###
+*Snitch* writes a log of both authorized and blocked attempts of connectivity. An overall view provides transparency and lets you control outgoing connections initialized by plugins, themes, or WordPress.
 
 
-### Anforderungen
+### In A Nutshell ###
+* neat interface
+* displays target URL and source file
+* features grouping, sorting, searching
+* visual highlighting of blocked requests
+* show POST variables with a simple click
+* block/unblock connections by domain/file
+* monitors communication in back-end and front-end
+* delete all entries by pressing a button
+* free of charge, no advertising
 
-* PHP 5.2.4
-* WordPress ab 3.8
+
+### Memory Usage ###
+* Backend: ~ 0.32 MB
+* Frontend: ~ 0.27 MB
 
 
-### Speicherbelegung
-
-* Backend: ~ 0,32 MB
-* Frontend: ~ 0,27 MB
-
-
-### Sprachen
-* Deutsch
+### Languages ###
+* German
 * English
 * Русский
-
-
-___
 
 
 ### Credits ###
 * Author: [Sergej Müller](https://sergejmueller.github.io/)
 * Maintainers: [pluginkollektiv](http://pluginkollektiv.org/)
+* Contributor: [Bego Mario Garde](https://garde-medienberatung.de)
 
 
-### Unterstützer
-
-* [Caspar Hübinger](http://glueckpress.com)
-* [Bego Mario Garde](https://garde-medienberatung.de)
+## Installation ##
+* If you don’t know how to install a plugin for WordPress, [here’s how](http://codex.wordpress.org/Managing_Plugins#Installing_Plugins).
 
 
-### Links
+### Requirements ###
+* PHP 5.2.4 or greater
+* WordPress 3.8 or greater
 
-* [Wiki](https://github.com/pluginkollektiv/snitch/wiki) *(Dokumentation)*
-* [Changelog](https://github.com/pluginkollektiv/snitch/blob/master/CHANGELOG.md)
+
+## Changelog ##
+### 1.1.6 ###
+* updated README
+* updated [plugin authors](https://gist.github.com/glueckpress/f058c0ab973d45a72720)
+
+### 1.1.5 / 06.05.2015 ###
+* [GitHub Repository](https://github.com/sergejmueller/snitch)
+
+### 1.1.4 ###
+* Support for WordPress 4.2
+* Nice to have: `admin_url()` for `edit.php` requests
+
+### 1.1.3 ###
+* Support for WordPress 4.1
+
+### 1.1.2 ###
+* feature: english translation for the readme file
+* feature: russian translation for plugin files
+* *time investment for this release (development & QA): 2.0 hours*
+
+### 1.1.1 ###
+* feature: status code “-1” for failing connections
+* *time investment for this release (development & QA): 2.5 hours*
+
+### 1.1.0 ###
+* feature: execution time as metric (thanks [Matthias Kilian](https://www.gaertner.de) for the idea)
+
+### 1.0.12 ###
+* extensive consideration of user roles
+* copy adjustments
+
+### 1.0.11 ###
+* support for WordPress 3.9
+* source code face lifting
+
+### 1.0.10 ###
+* change: $pre as return value of function `inspect_request`
+
+### 1.0.9 ###
+* optimization for WordPress 3.8
+* introduction of constant `SNITCH_IGNORE_INTERNAL_REQUESTS`
+* [details for this update on Google+](https://plus.google.com/+SergejMüller/posts/KaSGc9uNpk4)
+
+### 1.0.8 ###
+* output POST data on click
+* support for WordPress 3.6
+* [details for this update on Google+](https://plus.google.com/110569673423509816572/posts/f8VaQaHfQjx)
+
+### 1.0.7 ###
+* removal of obsolete "New" link from the toolbar
+* prevention of direct file calls
+
+### 1.0.6 ###
+* set function `delete_items` to public
+
+### 1.0.5 ###
+* storage of a maximum of 200 Snitch entries
+
+### 1.0.4 ###
+* new: searching of target URLs
+
+### 1.0.3 ###
+* new: button *Empty Protocol*
+* removed: avoidance of trash
+
+### 1.0.2 ###
+* renaming of custom field keys to avoid conflict
+
+### 1.0.1 ###
+* fix for *Call to undefined function get_current_screen*
+
+### 1.0.0 ###
+* Snitch goes online
+
+
+## Screenshots ##
+1. Snitch connection list with target URL and actions
+
+2. Snitch connection list with further information
