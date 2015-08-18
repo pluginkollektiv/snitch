@@ -982,12 +982,11 @@ class Snitch_CPT
 	public static function views_edit($views)
 	{
 		$links = array(
-			'paypal' => '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=ZAQUT9RLPW8QN" target="_blank">PayPal</a>',
-			'flattr' => '<a href="https://flattr.com/t/1628977" target="_blank">Flattr</a>'
+			'paypal' => '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LG5VC9KXMAYXJ" target="_blank">PayPal</a>'
 		);
 
 		if ( strpos(get_locale(), 'de') !== false ) {
-			$links['wiki'] = '<a href="https://github.com/sergejmueller/snitch/wiki" target="_blank">Wiki</a>';
+			$links['wiki'] = '<a href="https://github.com/pluginkollektiv/snitch/wiki" target="_blank">Wiki</a>';
 		}
 
 		return $links;
