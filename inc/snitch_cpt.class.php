@@ -982,7 +982,7 @@ class Snitch_CPT
 	public static function views_edit($views)
 	{
 		$links = array(
-			'paypal' => '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LG5VC9KXMAYXJ" target="_blank">PayPal</a>'
+			'paypal' => '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8CH5FPR88QYML" target="_blank">PayPal</a>'
 		);
 
 		if ( strpos(get_locale(), 'de') !== false ) {
