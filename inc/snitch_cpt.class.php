@@ -555,6 +555,18 @@ class Snitch_CPT
 		$line = self::_get_meta($post_id, 'line');
 		$meta = self::_get_meta($post_id, 'meta');
 
+		if ( ! is_array( $meta ) ) {
+			$meta = array();
+		}
+
+		if ( ! isset( $meta['type'] ) ) {
+			$meta['type'] = 'WordPress';
+		}
+
+		if ( ! isset( $meta['name'] ) ) {
+			$meta['name'] = 'Core';
+		}
+
 		/* Already blacklisted? */
 		$blacklisted = in_array( $file, self::$options['files'] );
 
