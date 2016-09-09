@@ -8,7 +8,6 @@
 * License:           GPLv3 or later
 * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
 
-
 Network monitor for WordPress. Connection overview for monitoring and controlling outgoing data traffic.
 
 ## Description ##
@@ -19,7 +18,6 @@ Network monitor for WordPress with connection overview for controlling and regul
 >
 > **Community-Support auf Deutsch** erhältst du in einem der [deutschsprachigen Foren](https://de.forums.wordpress.org/forum/plugins); im [Plugin-Forum für Snitch](https://wordpress.org/support/plugin/snitch) wird, wie in allen Plugin-Foren auf wordpress.org, ausschließlich **Englisch** gesprochen.
 
-
 ### Trust, But Verify ###
 *Snitch* monitors and logs the outgoing data stream of your WordPress site. It records every outbound connection from WordPress and provides a log table for administrators.
 
@@ -27,10 +25,8 @@ Network monitor for WordPress with connection overview for controlling and regul
 
 *Snitch* is a perfect tool to “listen in” on outbound communication. It is also suitable to early recognize any malware and tracking software installed.
 
-
 ### Summary ###
 *Snitch* writes a log of both authorized and blocked attempts of connectivity. An overall view provides transparency and lets you control outgoing connections initialized by plugins, themes, or WordPress.
-
 
 ### In A Nutshell ###
 * neat interface
@@ -42,7 +38,6 @@ Network monitor for WordPress with connection overview for controlling and regul
 * monitors communication in back-end and front-end
 * delete all entries by pressing a button
 * free of charge, no advertising
-
 
 ### Memory Usage ###
 * Backend: ~ 0.32 MB
@@ -68,15 +63,12 @@ Network monitor for WordPress with connection overview for controlling and regul
 * Maintainers: [pluginkollektiv](http://pluginkollektiv.org/)
 * Contributor: [Bego Mario Garde](https://garde-medienberatung.de)
 
-
 ## Installation ##
 * If you don’t know how to install a plugin for WordPress, [here’s how](http://codex.wordpress.org/Managing_Plugins#Installing_Plugins).
-
 
 ### Requirements ###
 * PHP 5.2.4 or greater
 * WordPress 3.8 or greater
-
 
 ## Changelog ##
 ### 1.1.6 ###
@@ -102,6 +94,8 @@ Network monitor for WordPress with connection overview for controlling and regul
 
 ### 1.1.0 ###
 * feature: execution time as metric (thanks [Matthias Kilian](https://www.gaertner.de) for the idea)
+
+For the complete changelog, check out our [GitHub repository](https://github.com/pluginkollektiv/snitch).
 
 ## Upgrade Notice ##
 
