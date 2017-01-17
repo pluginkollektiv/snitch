@@ -3,7 +3,7 @@
 * Donate link:       https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8CH5FPR88QYML
 * Tags:              sniffer, snitch, network, monitoring, firewall
 * Requires at least: 3.8
-* Tested up to:      4.6
+* Tested up to:      4.7
 * Stable tag:        trunk
 * License:           GPLv3 or later
 * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
@@ -12,11 +12,6 @@ Network monitor for WordPress. Connection overview for monitoring and controllin
 
 ## Description ##
 Network monitor for WordPress with connection overview for controlling and regulating data traffic from your site.
-
-> #### Auf Deutsch? ####
-> Für eine ausführliche Dokumentation besuche bitte das [Wiki](https://github.com/pluginkollektiv/snitch/wiki).
->
-> **Community-Support auf Deutsch** erhältst du in einem der [deutschsprachigen Foren](https://de.forums.wordpress.org/forum/plugins); im [Plugin-Forum für Snitch](https://wordpress.org/support/plugin/snitch) wird, wie in allen Plugin-Foren auf wordpress.org, ausschließlich **Englisch** gesprochen.
 
 ### Trust, But Verify ###
 *Snitch* monitors and logs the outgoing data stream of your WordPress site. It records every outbound connection from WordPress and provides a log table for administrators.
@@ -38,15 +33,6 @@ Network monitor for WordPress with connection overview for controlling and regul
 * monitors communication in back-end and front-end
 * delete all entries by pressing a button
 * free of charge, no advertising
-
-### Memory Usage ###
-* Backend: ~ 0.32 MB
-* Frontend: ~ 0.27 MB
-
-### Languages ###
-* German
-* English
-* Русский
 
 ### Support ###
 * Community support via the [support forums on wordpress.org](https://wordpress.org/support/plugin/snitch)
