@@ -1,26 +1,17 @@
 # Snitch #
 * Contributors:      pluginkollektiv
-* Tags:              sniffer, snitch, network, monitoring, firewall
 * Donate link:       https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8CH5FPR88QYML
 * Tags:              sniffer, snitch, network, monitoring, firewall
 * Requires at least: 3.8
-* Tested up to:      4.3
+* Tested up to:      4.7
 * Stable tag:        trunk
 * License:           GPLv3 or later
 * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
 
-
 Network monitor for WordPress. Connection overview for monitoring and controlling outgoing data traffic.
-
 
 ## Description ##
 Network monitor for WordPress with connection overview for controlling and regulating data traffic from your site.
-
-> #### Auf Deutsch? ####
-> Für eine ausführliche Dokumentation besuche bitte das [Wiki](https://github.com/pluginkollektiv/snitch/wiki).
->
-> **Community-Support auf Deutsch** erhältst du in einem der [deutschsprachigen Foren](https://de.forums.wordpress.org/forum/plugins); im [Plugin-Forum für Snitch](https://wordpress.org/support/plugin/snitch) wird, wie in allen Plugin-Foren auf wordpress.org, ausschließlich **Englisch** gesprochen.
-
 
 ### Trust, But Verify ###
 *Snitch* monitors and logs the outgoing data stream of your WordPress site. It records every outbound connection from WordPress and provides a log table for administrators.
@@ -29,10 +20,8 @@ Network monitor for WordPress with connection overview for controlling and regul
 
 *Snitch* is a perfect tool to “listen in” on outbound communication. It is also suitable to early recognize any malware and tracking software installed.
 
-
 ### Summary ###
 *Snitch* writes a log of both authorized and blocked attempts of connectivity. An overall view provides transparency and lets you control outgoing connections initialized by plugins, themes, or WordPress.
-
 
 ### In A Nutshell ###
 * neat interface
@@ -45,32 +34,27 @@ Network monitor for WordPress with connection overview for controlling and regul
 * delete all entries by pressing a button
 * free of charge, no advertising
 
+### Support ###
+* Community support via the [support forums on wordpress.org](https://wordpress.org/support/plugin/snitch)
+* We don’t handle support via e-mail, Twitter, GitHub issues etc.
 
-### Memory Usage ###
-* Backend: ~ 0.32 MB
-* Frontend: ~ 0.27 MB
-
-
-### Languages ###
-* German
-* English
-* Русский
-
+### Contribute ###
+* Active development of this plugin is handled [on GitHub](https://github.com/pluginkollektiv/snitch).
+* Pull requests for documented bugs are highly appreciated.
+* If you think you’ve found a bug (e.g. you’re experiencing unexpected behavior), please post at the [support forums](https://wordpress.org/support/plugin/snitch) first.
+* If you want to help us translate this plugin you can do so [on WordPress Translate](https://translate.wordpress.org/projects/wp-plugins/snitch).
 
 ### Credits ###
 * Author: [Sergej Müller](https://sergejmueller.github.io/)
 * Maintainers: [pluginkollektiv](http://pluginkollektiv.org/)
 * Contributor: [Bego Mario Garde](https://garde-medienberatung.de)
 
-
 ## Installation ##
 * If you don’t know how to install a plugin for WordPress, [here’s how](http://codex.wordpress.org/Managing_Plugins#Installing_Plugins).
-
 
 ### Requirements ###
 * PHP 5.2.4 or greater
 * WordPress 3.8 or greater
-
 
 ## Changelog ##
 ### 1.1.6 ###
@@ -90,62 +74,19 @@ Network monitor for WordPress with connection overview for controlling and regul
 ### 1.1.2 ###
 * feature: english translation for the readme file
 * feature: russian translation for plugin files
-* *time investment for this release (development & QA): 2.0 hours*
 
 ### 1.1.1 ###
 * feature: status code “-1” for failing connections
-* *time investment for this release (development & QA): 2.5 hours*
 
 ### 1.1.0 ###
 * feature: execution time as metric (thanks [Matthias Kilian](https://www.gaertner.de) for the idea)
 
-### 1.0.12 ###
-* extensive consideration of user roles
-* copy adjustments
+For the complete changelog, check out our [GitHub repository](https://github.com/pluginkollektiv/snitch).
 
-### 1.0.11 ###
-* support for WordPress 3.9
-* source code face lifting
+## Upgrade Notice ##
 
-### 1.0.10 ###
-* change: $pre as return value of function `inspect_request`
-
-### 1.0.9 ###
-* optimization for WordPress 3.8
-* introduction of constant `SNITCH_IGNORE_INTERNAL_REQUESTS`
-* [details for this update on Google+](https://plus.google.com/+SergejMüller/posts/KaSGc9uNpk4)
-
-### 1.0.8 ###
-* output POST data on click
-* support for WordPress 3.6
-* [details for this update on Google+](https://plus.google.com/110569673423509816572/posts/f8VaQaHfQjx)
-
-### 1.0.7 ###
-* removal of obsolete "New" link from the toolbar
-* prevention of direct file calls
-
-### 1.0.6 ###
-* set function `delete_items` to public
-
-### 1.0.5 ###
-* storage of a maximum of 200 Snitch entries
-
-### 1.0.4 ###
-* new: searching of target URLs
-
-### 1.0.3 ###
-* new: button *Empty Protocol*
-* removed: avoidance of trash
-
-### 1.0.2 ###
-* renaming of custom field keys to avoid conflict
-
-### 1.0.1 ###
-* fix for *Call to undefined function get_current_screen*
-
-### 1.0.0 ###
-* Snitch goes online
-
+### 1.1.6 ###
+This is mainly a maintenance release which updates the readme and the plugin authors.
 
 ## Screenshots ##
 1. Snitch connection list with target URL and actions
