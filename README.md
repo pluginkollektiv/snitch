@@ -56,6 +56,44 @@ Network monitor for WordPress with connection overview for controlling and regul
 * PHP 5.2.4 or greater
 * WordPress 3.8 or greater
 
+
+## Frequently Asked Questions ##
+
+### Snitch creates a lot of database entries ###
+*Snitch* is designed to log any outgoing connection in WordPress. If the database fills fast, you should ask yourself as a blog operator: Why actually? Why does my WordPress and plugins communicate so often to the outside that the database table fills? Does everything go the right way and must this communication really be?
+
+As a reminder: *Snitch* is designed to help you improve your WordPress performance by detecting and displaying connections as bottleneck. The task for the blog administrator is to eliminate the source of the cause (plugin, theme, etc.).
+
+*Snitch* automatically ensures that there are not more than 200 entries are kept in the database. If it is nevertheless necessary to remove _Snitch_ entries from the database manually, two smart database commands could help:
+
+`sql
+DELETE FROM `wp_postmeta` WHERE `post_id` IN ( SELECT `ID` FROM `wp_posts` WHERE `post_type` = 'snitch' )
+DELETE FROM `wp_posts` WHERE `post_type` = 'snitch'
+`
+
+### Are connections monitored in the front end? ###
+*Snitch* writes down any connection that leaves the blog via [WordPress HTTP API](http://codex.wordpress.org/HTTP_API) (internal WordPress interface for data communication). This affects both the back-end and the front-end of a WordPress installation.
+
+### Why does Snitch list WordPress cronjobs? ###
+WordPress calls internal Cronjobs via [WordPress HTTP API](http://codex.wordpress.org/HTTP_API) - exactly this interface is monitored by _Snitch_ and also records Cronjob accesses accordingly.
+
+If cronjobs are listed too often, something possibly isn't correct. Therefore, it is recommend to check the list of scheduled cronjob jobs.
+
+The following code snippet in the WordPress configuration file `wp-config.php` switches off the logging of the internal WordPress queries:
+
+`php
+define('SNITCH_IGNORE_INTERNAL_REQUESTS', true);
+`
+
+### Why are Snitch entries indexed by Google? ###
+*Snitch* stores its entries as [WordPress Custom Post Types](https://codex.wordpress.org/Post_Types). Important step: By a WordPress attribute Snitch marks all log entries as private, therefore not public. So far, the ideology with private and inaccessible entries would work if there were not WordPress plugins that would carry all - including private - Custom Post Types into the world and communicate with search engines. With fatal consequences for the blogger.
+
+And so it quickly happens that Google suddenly hits *Snitch* entries (as blog pages) which are not intended for public access. For example, because _Snitch_ entries appear in the sitemap XML of the blog, as a sitemap XML plugin is of the opinion that it is also necessary to add private entries and to have them released for indexing. There is also no help to block via `robots.txt` because the `robots.txt` file does not prevent the indexing of the pages.
+
+### Automatic Shares go crazily ###
+The fact that every new _Snitch_ entry automatically sends a message to Facebook and/or Twitter, is clearly not due to *Snitch*. Rather, the cause is to be found in the inserted Auto-Tweet-Facebook-Plugin, which faulty triggers an automatic event at every - also non-public - [WordPress Custom Post Type](https://codex.wordpress.org/Post_Types). And that's wrong. The usage of such Plugins should be reconsidered.
+
+
 ## Changelog ##
 ### 1.1.6 ###
 * updated README
