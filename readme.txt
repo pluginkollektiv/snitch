@@ -93,6 +93,8 @@ And so it quickly happens that Google suddenly hits *Snitch* entries (as blog pa
 ### Automatic Shares go crazily ###
 The fact that every new _Snitch_ entry automatically sends a message to Facebook and/or Twitter, is clearly not due to *Snitch*. Rather, the cause is to be found in the inserted Auto-Tweet-Facebook-Plugin, which faulty triggers an automatic event at every - also non-public - [WordPress Custom Post Type](https://codex.wordpress.org/Post_Types). And that's wrong. The usage of such Plugins should be reconsidered.
 
+A complete documentation is available in the [GitHub repository Wiki](https://github.com/pluginkollektiv/snitch/wiki).
+
 
 ## Changelog ##
 ### 1.1.6 ###
