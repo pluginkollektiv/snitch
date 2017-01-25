@@ -994,8 +994,9 @@ class Snitch_CPT
 	public static function views_edit($views)
 	{
 		$links = array(
-			'paypal' => '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8CH5FPR88QYML" target="_blank" rel="noopener noreferrer">Donate</a>',
-			'wiki' => '<a href="https://github.com/pluginkollektiv/snitch/wiki" target="_blank" rel="noopener noreferrer">Manual</a>';
+			'paypal' => '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8CH5FPR88QYML" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Donate', 'snitch' ) . '</a>',
+			'wiki' => '<a href="https://github.com/pluginkollektiv/snitch/wiki" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Manual', 'snitch' ) . '</a>'
+			'support' => '<a href="https://wordpress.org/support/plugin/snitch" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Support', 'snitch' ) . '</a>'
 		);
 
 		return $links;
