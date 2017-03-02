@@ -200,6 +200,17 @@ class Snitch_CPT
 			10,
 			1
 		);
+
+		/*  row actions */
+		add_filter(
+			'post_row_actions',
+			array(
+				__CLASS__,
+				'row_actions'
+			),
+			10,
+			2
+		);
 	}
 
 
@@ -1085,5 +1096,21 @@ class Snitch_CPT
 		$screen = get_current_screen();
 
 		return ( is_object($screen) && $screen->id === $id );
+	}
+
+	/**
+	 * Default row actions unterdrücken
+	 *
+	 * @since   1.1.7
+	 * @param   array   $actions  Array mit den default Aktionen auf ein Post (Edit, Quickedit, löschen)
+	 * @param   objekt  $post
+	 * @return  array   $actions
+	 */
+	public static function row_actions( $actions, $post )
+	{
+		if ($post->post_type=='snitch') {
+			return;
+		}
+		return $actions;
 	}
 }

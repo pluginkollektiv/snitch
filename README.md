@@ -3,7 +3,7 @@
 * Donate link:       https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8CH5FPR88QYML
 * Tags:              sniffer, snitch, network, monitoring, firewall
 * Requires at least: 3.8
-* Tested up to:      4.7
+* Tested up to:      4.7.2
 * Stable tag:        trunk
 * License:           GPLv3 or later
 * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
@@ -57,6 +57,12 @@ Network monitor for WordPress with connection overview for controlling and regul
 * WordPress 3.8 or greater
 
 ## Changelog ##
+### 1.1.7 ###
+* updated README
+* testet up to WordPress 4.7.2
+* added GitHub Updater Metadata
+* remove default row actions like edit,quickedit, delete on snitch entrys
+
 ### 1.1.6 ###
 * updated README
 * updated [plugin authors](https://gist.github.com/glueckpress/f058c0ab973d45a72720)
