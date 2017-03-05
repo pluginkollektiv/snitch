@@ -7,13 +7,16 @@ Author URI:  http://pluginkollektiv.org
 Plugin URI:  https://wordpress.org/plugins/snitch/
 License:     GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Version:     1.1.6
+Version:     1.1.7
 Text Domain: snitch
 Domain Path: /lang
+GitHub Plugin URI: https://github.com/pluginkollektiv/snitch
+GitHub Branch: master
 */
 
 /*
 Copyright (C)  2013-2015 Sergej Müller
+Copyright (C)  2015-2017 Pluginkollektiv
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
