@@ -1,12 +1,4 @@
 # Snitch #
-* Contributors:      pluginkollektiv
-* Donate link:       https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8CH5FPR88QYML
-* Tags:              sniffer, snitch, network, monitoring, firewall
-* Requires at least: 3.8
-* Tested up to:      4.7
-* Stable tag:        trunk
-* License:           GPLv3 or later
-* License URI:       https://www.gnu.org/licenses/gpl-3.0.html
 
 Network monitor for WordPress. Connection overview for monitoring and controlling outgoing data traffic.
 
@@ -44,6 +36,9 @@ Network monitor for WordPress with connection overview for controlling and regul
 * If you think you’ve found a bug (e.g. you’re experiencing unexpected behavior), please post at the [support forums](https://wordpress.org/support/plugin/snitch) first.
 * If you want to help us translate this plugin you can do so [on WordPress Translate](https://translate.wordpress.org/projects/wp-plugins/snitch).
 
+### Donate ###
+[Donate for us via Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8CH5FPR88QYML)
+
 ### Credits ###
 * Author: [Sergej Müller](https://sergejmueller.github.io/)
 * Maintainers: [pluginkollektiv](http://pluginkollektiv.org/)
@@ -56,39 +51,12 @@ Network monitor for WordPress with connection overview for controlling and regul
 * PHP 5.2.4 or greater
 * WordPress 3.8 or greater
 
+
+## Frequently Asked Questions ##
+Please have a look [in the FAQ pages](https://github.com/pluginkollektiv/snitch/wiki/en-FAQ).
+
+A complete documentation is available in the [GitHub repository Wiki](https://github.com/pluginkollektiv/snitch/wiki).
+
+
 ## Changelog ##
-### 1.1.6 ###
-* updated README
-* updated [plugin authors](https://gist.github.com/glueckpress/f058c0ab973d45a72720)
-
-### 1.1.5 / 06.05.2015 ###
-* [GitHub Repository](https://github.com/sergejmueller/snitch)
-
-### 1.1.4 ###
-* Support for WordPress 4.2
-* Nice to have: `admin_url()` for `edit.php` requests
-
-### 1.1.3 ###
-* Support for WordPress 4.1
-
-### 1.1.2 ###
-* feature: english translation for the readme file
-* feature: russian translation for plugin files
-
-### 1.1.1 ###
-* feature: status code “-1” for failing connections
-
-### 1.1.0 ###
-* feature: execution time as metric (thanks [Matthias Kilian](https://www.gaertner.de) for the idea)
-
-For the complete changelog, check out our [GitHub repository](https://github.com/pluginkollektiv/snitch).
-
-## Upgrade Notice ##
-
-### 1.1.6 ###
-This is mainly a maintenance release which updates the readme and the plugin authors.
-
-## Screenshots ##
-1. Snitch connection list with target URL and actions
-
-2. Snitch connection list with further information
+[Changelog](./CHANGELOG.md).
