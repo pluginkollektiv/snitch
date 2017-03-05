@@ -1106,8 +1106,8 @@ class Snitch_CPT
 	 */
 	public static function row_actions( $actions, $post )
 	{
-		if ($post->post_type=='snitch') {
-			return;
+		if ( 'snitch' === $post->post_type ) {
+			return array();
 		}
 		return $actions;
 	}
