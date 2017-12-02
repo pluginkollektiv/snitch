@@ -662,7 +662,7 @@ class Snitch_CPT
 	{
 		if ( $duration = self::_get_meta($post_id, 'duration') ) {
 			echo sprintf(
-				__( '%s seconds' ),
+				__( '%s seconds', 'snitch' ),
 				$duration
 			);
 		}
@@ -681,7 +681,7 @@ class Snitch_CPT
 	private static function _html_created($post_id)
 	{
 		echo sprintf(
-			__( '%s ago' ),
+			__( '%s ago', 'snitch' ),
 			human_time_diff( get_post_time('G', true, $post_id) )
 		);
 	}
