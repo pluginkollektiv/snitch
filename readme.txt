@@ -1,9 +1,10 @@
 # Snitch #
 * Contributors:      pluginkollektiv
-* Tags:              sniffer, snitch, network, monitoring, firewall
 * Donate link:       https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TD4AMD2D8EMZW
+* Tags:              sniffer, snitch, network, monitoring, firewall, GDPR
 * Requires at least: 3.8
 * Tested up to:      4.9
+* Requires PHP:      5.2.4
 * Stable tag:        trunk
 * License:           GPLv3 or later
 * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
@@ -18,7 +19,7 @@ Network monitor for WordPress with connection overview for controlling and regul
 
 *Snitch* does not only log connection requests, but enables you to block future requests either by target URL (internet address being called in the background), or by script (file being executed to open up a connection). Once blocked, a  connection will be visually highlighted. Blocked entries can be unblocked with a simple click.
 
-*Snitch* is a perfect tool to “listen in” on outbound communication. It is also suitable to early recognize any malware and tracking software installed.
+*Snitch* is a perfect tool to “listen in” on outbound communication. It is also suitable to early recognize any malware and tracking software installed. You can youse *Snitch* to make sure you comply with GDPR.
 
 ### Summary ###
 *Snitch* writes a log of both authorized and blocked attempts of connectivity. An overall view provides transparency and lets you control outgoing connections initialized by plugins, themes, or WordPress.
@@ -46,25 +47,21 @@ Network monitor for WordPress with connection overview for controlling and regul
 
 ### Credits ###
 * Author: [Sergej Müller](https://sergejmueller.github.io/)
-* Maintainers: [pluginkollektiv](http://pluginkollektiv.org/)
+* Maintainers: [pluginkollektiv](https://pluginkollektiv.org/)
 * Contributor: [Bego Mario Garde](https://garde-medienberatung.de)
 
 ## Installation ##
 * If you don’t know how to install a plugin for WordPress, [here’s how](http://codex.wordpress.org/Managing_Plugins#Installing_Plugins).
 
-### Requirements ###
-* PHP 5.2.4 or greater
-* WordPress 3.8 or greater
-
 
 ## Frequently Asked Questions ##
 
 ### Snitch creates a lot of database entries ###
-*Snitch* is designed to log any outgoing connection in WordPress. If the database fills fast, you should ask yourself as a blog operator: Why actually? Why does my WordPress and plugins communicate so often to the outside that the database table fills? Does everything go the right way and must this communication really be?
+*Snitch* is designed to log any outgoing connection in WordPress. If the database fills fast, you should look up the cause. Why does your WordPress and plugins communicate so often to the outside that the database table fills? Is this communication really necessary?
 
 As a reminder: *Snitch* is designed to help you improve your WordPress performance by detecting and displaying connections as bottleneck. The task for the blog administrator is to eliminate the source of the cause (plugin, theme, etc.).
 
-*Snitch* automatically ensures that there are not more than 200 entries are kept in the database. If it is nevertheless necessary to remove _Snitch_ entries from the database manually, two smart database commands could help:
+*Snitch* automatically ensures that there are not more than 200 entries are kept in the database. If it is nevertheless necessary to remove *Snitch* entries from the database manually, two smart database commands could help:
 
 `sql
 DELETE FROM `wp_postmeta` WHERE `post_id` IN ( SELECT `ID` FROM `wp_posts` WHERE `post_type` = 'snitch' )
@@ -72,7 +69,7 @@ DELETE FROM `wp_posts` WHERE `post_type` = 'snitch'
 `
 
 ### Are connections monitored in the front end? ###
-*Snitch* writes down any connection that leaves the blog via [WordPress HTTP API](http://codex.wordpress.org/HTTP_API) (internal WordPress interface for data communication). This affects both the back-end and the front-end of a WordPress installation.
+*Snitch* catches any connection that leaves the blog via [WordPress HTTP API](http://codex.wordpress.org/HTTP_API) (internal WordPress interface for data communication). This affects both the back-end and the front-end of a WordPress installation.
 
 ### Why does Snitch list WordPress cronjobs? ###
 WordPress calls internal Cronjobs via [WordPress HTTP API](http://codex.wordpress.org/HTTP_API) - exactly this interface is monitored by _Snitch_ and also records Cronjob accesses accordingly.
@@ -125,7 +122,7 @@ For the complete changelog, check out our [GitHub repository](https://github.com
 
 ## Upgrade Notice ##
 
-### 1.1.6 ###
+### 1.1.7 ###
 This is mainly a maintenance release which updates the readme and the plugin authors.
 
 ## Screenshots ##
