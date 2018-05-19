@@ -1,11 +1,21 @@
 # Snitch changelog
 
+## 1.1.7
+* **English**
+   * Updated README
+   * Improved user interface
+   * Support for WordPress 4.9
+* **Deutsch**
+   * Readme aktualisiert
+   * Nutzer-Interface verbessert
+   * Unterstützung für WordPress 4.9
+
 ## 1.1.6
 * **English**
-   * updated README
-   * updated [plugin authors](https://gist.github.com/glueckpress/f058c0ab973d45a72720)
+   * Updated README
+   * Updated [plugin authors](https://gist.github.com/glueckpress/f058c0ab973d45a72720)
 * **Deutsch**
-   * ReadMe aktualisiert
+   * Readme aktualisiert
    * [Plugin Autor](https://gist.github.com/glueckpress/f058c0ab973d45a72720) aktualisiert
 
 ## 1.1.5

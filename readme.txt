@@ -94,9 +94,14 @@ A complete documentation is available in the [GitHub repository Wiki](https://gi
 
 
 ## Changelog ##
+### 1.1.7 ###
+* Updated README
+* Improved user interface
+* Support for WordPress 4.9
+
 ### 1.1.6 ###
-* updated README
-* updated [plugin authors](https://gist.github.com/glueckpress/f058c0ab973d45a72720)
+* Updated README
+* Updated [plugin authors](https://gist.github.com/glueckpress/f058c0ab973d45a72720)
 
 ### 1.1.5 / 06.05.2015 ###
 * [GitHub Repository](https://github.com/sergejmueller/snitch)
@@ -109,14 +114,14 @@ A complete documentation is available in the [GitHub repository Wiki](https://gi
 * Support for WordPress 4.1
 
 ### 1.1.2 ###
-* feature: english translation for the readme file
-* feature: russian translation for plugin files
+* Feature: english translation for the readme file
+* Feature: russian translation for plugin files
 
 ### 1.1.1 ###
-* feature: status code “-1” for failing connections
+* Feature: status code “-1” for failing connections
 
 ### 1.1.0 ###
-* feature: execution time as metric (thanks [Matthias Kilian](https://www.gaertner.de) for the idea)
+* Feature: execution time as metric (thanks [Matthias Kilian](https://www.gaertner.de) for the idea)
 
 For the complete changelog, check out our [GitHub repository](https://github.com/pluginkollektiv/snitch).
 
