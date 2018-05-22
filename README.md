@@ -37,7 +37,7 @@ Network monitor for WordPress with connection overview for controlling and regul
 * If you want to help us translate this plugin you can do so [on WordPress Translate](https://translate.wordpress.org/projects/wp-plugins/snitch).
 
 ### Donate ###
-[Donate for us via Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TD4AMD2D8EMZW)
+[Donate to us via Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TD4AMD2D8EMZW)
 
 ### Credits ###
 * Author: [Sergej Müller](https://sergejmueller.github.io/)
