@@ -5,7 +5,7 @@
 * Requires at least: 3.8
 * Tested up to:      4.9
 * Requires PHP:      5.2.4
-* Stable tag:        trunk
+* Stable tag:        1.1.7
 * License:           GPLv3 or later
 * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
 
