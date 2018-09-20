@@ -7,7 +7,7 @@ Author URI:  https://pluginkollektiv.org
 Plugin URI:  https://wordpress.org/plugins/snitch/
 License:     GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Version:     1.1.7
+Version:     1.1.8
 Text Domain: snitch
 Domain Path: /lang
 GitHub Plugin URI: https://github.com/pluginkollektiv/snitch
@@ -85,7 +85,11 @@ spl_autoload_register('snitch_autoload');
 
 /* Autoload Funktion */
 function snitch_autoload($class) {
-	if ( in_array($class, array('Snitch', 'Snitch_HTTP', 'Snitch_CPT', 'Snitch_Blacklist')) ) {
+	$classes = array('Snitch', 'Snitch_HTTP', 'Snitch_CPT', 'Snitch_Blacklist');
+	if ( class_exists( 'WP_Stream\Plugin' ) ) {
+		$classes[] = 'Snitch_Stream';
+	}
+	if ( in_array($class, $classes ) ) {
 		require_once(
 			sprintf(
 				'%s/inc/%s.class.php',

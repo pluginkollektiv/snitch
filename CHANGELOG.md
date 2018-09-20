@@ -1,5 +1,11 @@
 # Snitch changelog
 
+## 1.1.8
+* **English**
+   * Added stream plugin support
+* **Deutsch**
+   * Unterstützung des Stream Plugins hinzugefügt
+
 ## 1.1.7
 * **English**
    * Updated README

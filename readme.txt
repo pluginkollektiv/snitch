@@ -5,7 +5,7 @@
 * Requires at least: 3.8
 * Tested up to:      4.9
 * Requires PHP:      5.2.4
-* Stable tag:        1.1.7
+* Stable tag:        1.1.8
 * License:           GPLv3 or later
 * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -94,6 +94,9 @@ A complete documentation is available in the [GitHub repository Wiki](https://gi
 
 
 ## Changelog ##
+### 1.1.8 ###
+* Added Stream support
+
 ### 1.1.7 ###
 * Updated README
 * Improved user interface

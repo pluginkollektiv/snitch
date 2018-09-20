@@ -211,6 +211,16 @@ class Snitch_CPT
 			10,
 			2
 		);
+
+		/* remove snitch cpt from default stream handling */
+		add_filter(
+			'wp_stream_posts_exclude_post_types',
+			array(
+				__CLASS__,
+				'exclude_order_post_types'
+			)
+		);
+
 	}
 
 
@@ -819,7 +829,7 @@ class Snitch_CPT
 				true
 			);
 		}
-
+		do_action( 'snitch_connection_accepted',  $post_id );
 		return $post_id;
 	}
 
@@ -1111,4 +1121,17 @@ class Snitch_CPT
 		}
 		return $actions;
 	}
+
+	/**
+	 * Default Post Handling von Beiträgen für Snitch-CPTs im Plugin Stream abschalten.
+	 *
+	 * @since   1.1.8
+	 * @param   array   $post_types  Array mit den Post-Types die von Stream ignoriert werden sollen
+	 * @return  array   $post_types
+	 */
+	public static function exclude_order_post_types( $post_types ) {
+		$post_types[] = 'snitch';
+		return $post_types;
+	}
+
 }

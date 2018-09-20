@@ -131,6 +131,15 @@ class Snitch
 			)
 		);
 
+		/* Stream support */
+		add_filter(
+			'wp_stream_connectors',
+			array(
+				__CLASS__,
+				'register_stream_connector'
+			)
+		);
+
 		/* Load lang */
 		load_plugin_textdomain(
 			'snitch',
@@ -397,5 +406,26 @@ class Snitch
 
 		/* Remove caps */
 		self::_handle_caps('administrator', 'remove');
+	}
+
+	public static function register_stream_connector() {
+		$class_name = 'Snitch_Stream';
+
+		if ( ! class_exists( $class_name ) ) {
+			return;
+		}
+
+		$stream = wp_stream_get_instance();
+		$class = new $class_name( $stream->log );
+
+		if ( ! method_exists( $class, 'is_dependency_satisfied' ) ) {
+			return;
+		}
+
+		if ( $class->is_dependency_satisfied() ) {
+			$classes[] = $class;
+		}
+
+		return $classes;
 	}
 }
