@@ -3,9 +3,9 @@
 * Donate link:       https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TD4AMD2D8EMZW
 * Tags:              sniffer, snitch, network, monitoring, firewall, GDPR
 * Requires at least: 3.8
-* Tested up to:      4.9
+* Tested up to:      5.2
 * Requires PHP:      5.2.4
-* Stable tag:        1.1.7
+* Stable tag:        1.1.8
 * License:           GPLv3 or later
 * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -94,6 +94,11 @@ A complete documentation is available in the [GitHub repository Wiki](https://gi
 
 
 ## Changelog ##
+
+### 1.1.8 ###
+* Support for WordPress 5.2
+* Bugix: Deprected Non-static call 
+
 ### 1.1.7 ###
 * Updated README
 * Improved user interface
