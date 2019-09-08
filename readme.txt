@@ -48,7 +48,6 @@ Network monitor for WordPress with connection overview for controlling and regul
 ### Credits ###
 * Author: [Sergej Müller](https://sergejmueller.github.io/)
 * Maintainers: [pluginkollektiv](https://pluginkollektiv.org/)
-* Contributor: [Bego Mario Garde](https://garde-medienberatung.de)
 
 ## Installation ##
 * If you don’t know how to install a plugin for WordPress, [here’s how](http://codex.wordpress.org/Managing_Plugins#Installing_Plugins).
@@ -90,7 +89,7 @@ And so it quickly happens that Google suddenly hits *Snitch* entries (as blog pa
 ### Automatic Shares go crazily ###
 The fact that every new _Snitch_ entry automatically sends a message to Facebook and/or Twitter, is clearly not due to *Snitch*. Rather, the cause is to be found in the inserted Auto-Tweet-Facebook-Plugin, which faulty triggers an automatic event at every - also non-public - [WordPress Custom Post Type](https://codex.wordpress.org/Post_Types). And that's wrong. The usage of such Plugins should be reconsidered.
 
-A complete documentation is available in the [GitHub repository Wiki](https://github.com/pluginkollektiv/snitch/wiki).
+A complete documentation is available on [Snitchs website](https://snitch.pluginkollektiv.org/documentation/).
 
 
 ## Changelog ##
@@ -106,7 +105,7 @@ A complete documentation is available in the [GitHub repository Wiki](https://gi
 
 ### 1.1.6 ###
 * Updated README
-* Updated [plugin authors](https://gist.github.com/glueckpress/f058c0ab973d45a72720)
+* Updated [plugin authors](https://pluginkollektiv.org/hello-world/)
 
 ### 1.1.5 / 06.05.2015 ###
 * [GitHub Repository](https://github.com/sergejmueller/snitch)
