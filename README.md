@@ -44,7 +44,7 @@ Network monitor for WordPress with connection overview for controlling and regul
 * Maintainers: [pluginkollektiv](http://pluginkollektiv.org/)
 
 ## Installation ##
-* If you don’t know how to install a plugin for WordPress, [here’s how](http://codex.wordpress.org/Managing_Plugins#Installing_Plugins).
+* If you don’t know how to install a plugin for WordPress, [here’s how](https://wordpress.org/support/article/managing-plugins/).
 
 ### Requirements ###
 * PHP 5.2.4 or greater
