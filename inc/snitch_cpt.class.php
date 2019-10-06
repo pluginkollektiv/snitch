@@ -413,7 +413,7 @@ class Snitch_CPT
 	* @return  array  $join_where  JOIN- und WHERE-Abfragen
 	*/
 
-	function modify_and_or($join_where)
+	public static function modify_and_or($join_where)
 	{
 		if ( ! empty($join_where['where']) ) {
 			$join_where['where'] = str_replace(
