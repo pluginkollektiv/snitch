@@ -1,5 +1,20 @@
 # Snitch changelog
 
+
+## 1.1.9
+* **English**
+   * Shows schema of request (http/https)
+* **Deutsch**
+   * Anzeige des Schema, ob der Aufruf per http oder https erfolgte
+
+## 1.1.8
+* **English**
+   * Support for WordPress 5.2
+   * Bugix: Deprected Non-static call 
+* **Deutsch**
+   * Unterstützung für WordPress 5.2
+   * Fehlerbehebung: Deprected Non-static call 
+
 ## 1.1.7
 * **English**
    * Updated README

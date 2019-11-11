@@ -7,7 +7,7 @@ Author URI:  https://pluginkollektiv.org
 Plugin URI:  https://snitch.pluginkollektiv.org/
 License:     GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Version:     1.1.8
+Version:     1.1.9
 Text Domain: snitch
 Domain Path: /lang
 GitHub Plugin URI: https://github.com/pluginkollektiv/snitch
