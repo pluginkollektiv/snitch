@@ -96,6 +96,7 @@ A complete documentation is available on [Snitchs website](https://snitch.plugin
 
 ### 1.1.9 ###
 * Shows schema of request (http/https)
+*
 
 ### 1.1.8 ###
 * Support for WordPress 5.2

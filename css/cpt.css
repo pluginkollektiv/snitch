@@ -43,10 +43,6 @@
     padding-bottom: 24px;
 }
 
-.type-snitch .row-actions {
-    bottom: 4px;
-    position: absolute;
-}
 .type-snitch .row-actions .block,
 .type-snitch .column-state .blocked {
     color: #bc0b0b;

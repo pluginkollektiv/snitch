@@ -4,9 +4,10 @@
 ## 1.1.9
 * **English**
    * Shows schema of request (http/https)
+   * No "jerking" in the retrieval list during mouse over
 * **Deutsch**
    * Anzeige des Schema, ob der Aufruf per http oder https erfolgte
-
+   * Kein "ruckeln" in der Abrufliste bei Maus-Over
 ## 1.1.8
 * **English**
    * Support for WordPress 5.2
