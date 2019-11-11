@@ -434,6 +434,7 @@ class Snitch_CPT
 			array(
 				'url'      => esc_html__('Destination', 'snitch'),
 				'file'     => esc_html__('File', 'snitch'),
+				'https'    => esc_html__('Scheme', 'snitch'),
 				'state'    => esc_html__('State', 'snitch'),
 				'code'     => esc_html__('Code', 'snitch'),
 				'duration' => esc_html__('Duration', 'snitch'),
@@ -490,6 +491,7 @@ class Snitch_CPT
 			array(
 				'url'      => array(__CLASS__, '_html_url'),
 				'file'     => array(__CLASS__, '_html_file'),
+				'https'    => array(__CLASS__, '_html_https'),
 				'state'    => array(__CLASS__, '_html_state'),
 				'code'     => array(__CLASS__, '_html_code'),
 				'duration' => array(__CLASS__, '_html_duration'),
@@ -633,6 +635,27 @@ class Snitch_CPT
 			);
 		}
 	}
+
+
+	/**
+	 * HTML-Ausgabe des Schemes
+	 *
+	 * @since   1.1.8
+	 *
+	 * @param   integer  $post_id  Post-ID
+	 */
+
+	private static function _html_https($post_id)
+	{
+		/* Item state */
+		$url = self::_get_meta($post_id, 'url');
+		$parsed_url = wp_parse_url( $url );
+
+		/* Print the state */
+		echo "<img src='". SNITCH_URL . 'assets/' . $parsed_url[ 'scheme' ] . '.png' ."'>";
+
+	}
+
 
 
 	/**

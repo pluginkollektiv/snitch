@@ -44,7 +44,7 @@ define('SNITCH_DIR', dirname(__FILE__));
 define('SNITCH_BASE', plugin_basename(__FILE__));
 define('SNITCH_BLOCKED', 1);
 define('SNITCH_AUTHORIZED', -1);
-
+define('SNITCH_URL', plugin_dir_url( __FILE__ ) );
 
 /* Hooks */
 add_action(
