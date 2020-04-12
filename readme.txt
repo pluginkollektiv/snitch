@@ -3,7 +3,7 @@
 * Donate link:       https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TD4AMD2D8EMZW
 * Tags:              sniffer, snitch, network, monitoring, firewall, GDPR
 * Requires at least: 3.8
-* Tested up to:      5.2
+* Tested up to:      5.4
 * Requires PHP:      5.2.4
 * Stable tag:        1.1.9
 * License:           GPLv3 or later
@@ -112,7 +112,7 @@ A complete documentation is available on [Snitchs website](https://snitch.plugin
 * Updated [plugin authors](https://pluginkollektiv.org/hello-world/)
 
 ### 1.1.5 / 06.05.2015 ###
-* [GitHub Repository](https://github.com/sergejmueller/snitch)
+* [GitHub Repository](https://github.com/pluginkollektiv/snitch)
 
 ### 1.1.4 ###
 * Support for WordPress 4.2

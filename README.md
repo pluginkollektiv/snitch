@@ -41,7 +41,7 @@ Network monitor for WordPress with connection overview for controlling and regul
 
 ### Credits ###
 * Author: [Sergej Müller](https://sergejmueller.github.io/)
-* Maintainers: [pluginkollektiv](http://pluginkollektiv.org/)
+* Maintainers: [pluginkollektiv](https://pluginkollektiv.org/)
 
 ## Installation ##
 * If you don’t know how to install a plugin for WordPress, [here’s how](https://wordpress.org/support/article/managing-plugins/).
@@ -54,7 +54,7 @@ Network monitor for WordPress with connection overview for controlling and regul
 ## Frequently Asked Questions ##
 Please have a look [in the FAQ pages](https://snitch.pluginkollektiv.org/documentation#faq).
 
-A complete documentation is available in the [GitHub repository Wiki](https://snitch.pluginkollektiv.org/documentation/).
+A complete documentation is available on [pluginkollektiv.org](https://snitch.pluginkollektiv.org/documentation/).
 
 
 ## Changelog ##

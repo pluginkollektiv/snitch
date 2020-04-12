@@ -29,16 +29,16 @@
 ## 1.1.6
 * **English**
    * Updated README
-   * Updated [plugin authors](https://gist.github.com/glueckpress/f058c0ab973d45a72720)
+   * Updated [plugin authors](https://pluginkollektiv.org/hello-world/)
 * **Deutsch**
    * Readme aktualisiert
-   * [Plugin Autor](https://gist.github.com/glueckpress/f058c0ab973d45a72720) aktualisiert
+   * [Plugin Autor](https://pluginkollektiv.org/hello-world/) aktualisiert
 
 ## 1.1.5
 * **English**
-   * [GitHub Repository](https://github.com/sergejmueller/snitch)
+   * [GitHub Repository](https://github.com/pluginkollektiv/snitch) and [Wiki](https://snitch.pluginkollektiv.org/documentation/)
 * **Deutsch**
-   * [GitHub Repository](https://github.com/sergejmueller/snitch) und [Wiki](https://github.com/sergejmueller/snitch/wiki)
+   * [GitHub Repository](https://github.com/pluginkollektiv/snitch) und [Wiki](https://snitch.pluginkollektiv.org/de/dokumentation/)
 
 ## 1.1.4
 * **English**
@@ -103,7 +103,6 @@
 * **Deutsch**
    * Optionale Nicht-Protokollierung interner Verbindungen via PHP-Konstante
    * Optimierung für WordPress 3.8
-   * [detailierte Informationen auf Google+](https://plus.google.com/+SergejMüller/posts/KaSGc9uNpk4)
 
 ## 1.0.8
 * **English**
@@ -112,7 +111,7 @@
 * **Deutsch**
    * Schaltfläche für die Ausgabe der POST-Variablen
    * Kompatibilität zu WordPress 3.6
-   * [detailierte Informationen auf Google+](https://plus.google.com/110569673423509816572/posts/f8VaQaHfQjx)
+   * [detailierte Informationen im Blog](https://snitch.pluginkollektiv.org/2013/07/29/snitch-1-0-8-published/)
 
 ## 1.0.7
 * **English**
