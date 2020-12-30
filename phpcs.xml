@@ -24,34 +24,16 @@
     <!-- WordPress coding standards -->
     <config name="minimum_supported_wp_version" value="3.8" />
     <rule ref="WordPress">
-        <exclude name="Squiz.Commenting.ClassComment.SpacingAfter"/>
-        <exclude name="Squiz.Commenting.FileComment.WrongStyle"/>
-        <exclude name="Squiz.Commenting.FunctionComment.InvalidNoReturn"/>
-        <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
-        <exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
-        <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/>
-        <exclude name="Squiz.Commenting.FunctionComment.ParamNameNoMatch"/>
-        <exclude name="Squiz.Commenting.FunctionComment.SpacingAfter" />
-        <exclude name="Squiz.Commenting.FunctionComment.WrongStyle" />
-        <exclude name="Squiz.Commenting.VariableComment.MissingVar"/>
         <exclude name="Squiz.PHP.DisallowMultipleAssignments.FoundInControlStructure"/>
-        <exclude name="Squiz.Operators.ValidLogicalOperators.NotAllowed" />
-
-        <exclude name="WordPress.DB.PreparedSQL.NotPrepared"/>
 
         <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
         <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
-
-        <exclude name="WordPress.PHP.YodaConditions.NotYoda" />
 
         <exclude name="WordPress.Security.EscapeOutput.OutputNotEscaped"/>
         <exclude name="WordPress.Security.ValidatedSanitizedInput.InputNotSanitized"/>
         <exclude name="WordPress.Security.ValidatedSanitizedInput.MissingUnslash"/>
 
         <exclude name="WordPress.WP.EnqueuedResourceParameters.MissingVersion"/>
-
-        <exclude name="WordPress.WP.I18n.MissingTranslatorsComment"/>
-        <exclude name="WordPress.WP.I18n.NonSingularStringLiteralText"/>
     </rule>
     <rule ref="WordPress.WP.I18n">
         <properties>

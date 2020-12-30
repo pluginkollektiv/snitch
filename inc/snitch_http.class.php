@@ -1,20 +1,19 @@
 <?php
-
+/**
+ * Snitch_HTTP class checking and logging outgoing requests.
+ *
+ * @package Snitch
+ */
 
 /* Quit */
-defined( 'ABSPATH' ) or exit;
-
+defined( 'ABSPATH' ) || exit;
 
 /**
- * Snitch_HTTP
+ * Class Snitch_HTTP.
  *
  * @since 0.0.1
  */
-
 class Snitch_HTTP {
-
-
-
 	/**
 	 * Prüft den ausgehenden Request
 	 *
@@ -25,12 +24,11 @@ class Snitch_HTTP {
 	 * @hook    array    snitch_inspect_request_files
 	 * @hook    array    snitch_inspect_request_insert_post
 	 *
-	 * @param   boolean $pre   FALSE
-	 * @param   array   $args  Argumente der Anfrage
-	 * @param   string  $url   URL der Anfrage
+	 * @param   boolean $pre   FALSE.
+	 * @param   array   $args  Argumente der Anfrage.
+	 * @param   string  $url   URL der Anfrage.
 	 * @return  mixed           FALSE im Erfolgsfall
 	 */
-
 	public static function inspect_request( $pre, $args, $url ) {
 		/* Empty url */
 		if ( empty( $url ) ) {
@@ -81,7 +79,7 @@ class Snitch_HTTP {
 		$line = (int) $backtrace['line'];
 
 		/* Blocked item? */
-		if ( in_array( $host, $blacklist['hosts'] ) or in_array( $file, $blacklist['files'] ) ) {
+		if ( in_array( $host, $blacklist['hosts'] ) || in_array( $file, $blacklist['files'] ) ) {
 			return Snitch_CPT::insert_post(
 				(array) apply_filters(
 					'snitch_inspect_request_insert_post',
@@ -102,7 +100,6 @@ class Snitch_HTTP {
 		return $pre;
 	}
 
-
 	/**
 	 * Protokolliert den Request
 	 *
@@ -111,16 +108,15 @@ class Snitch_HTTP {
 	 *
 	 * @hook   array   snitch_log_response_insert_post
 	 *
-	 * @param  object $response  Response-Object
-	 * @param  string $type      Typ der API
-	 * @param  string $class     Klasse der API
-	 * @param  array  $args      Argumente der API
-	 * @param  string $url       URL der API
+	 * @param  object $response  Response-Object.
+	 * @param  string $type      Typ der API.
+	 * @param  string $class     Klasse der API.
+	 * @param  array  $args      Argumente der API.
+	 * @param  string $url       URL der API.
 	 */
-
 	public static function log_response( $response, $type, $class, $args, $url ) {
 		/* Only response type */
-		if ( $type !== 'response' ) {
+		if ( 'response' !== $type ) {
 			return false;
 		}
 
@@ -176,7 +172,6 @@ class Snitch_HTTP {
 		);
 	}
 
-
 	/**
 	 * Ermittelt die Ursprungsdatei des Requests
 	 *
@@ -185,7 +180,6 @@ class Snitch_HTTP {
 	 *
 	 * @return  array   $item   Information zu Herkunft
 	 */
-
 	private static function _debug_backtrace() {
 		/* Reverse items */
 		$trace = array_reverse( debug_backtrace() );
@@ -206,17 +200,15 @@ class Snitch_HTTP {
 		}
 	}
 
-
 	/**
 	 * Versuch die Datei anhand des Pfades zuzuordnen
 	 *
 	 * @since   0.0.1
 	 * @change  0.0.5
 	 *
-	 * @param   string $path  Pfad der Datei
-	 * @return  array   $meta  Array mit Informationen
+	 * @param   string $path  Pfad der Datei.
+	 * @return  array   $meta  Array mit Informationen.
 	 */
-
 	private static function _face_detect( $path ) {
 		 /* Default */
 		$meta = array(
@@ -247,17 +239,15 @@ class Snitch_HTTP {
 		return $meta;
 	}
 
-
 	/**
 	 * Suche nach einem Plugin anhand des Pfades
 	 *
 	 * @since   0.0.1
 	 * @change  1.0.11
 	 *
-	 * @param   string $path  Pfad einer Datei aus dem Plugin-Ordner
-	 * @return  array   void   Array mit Plugin-Daten
+	 * @param   string $path  Pfad einer Datei aus dem Plugin-Ordner.
+	 * @return  array   void   Array mit Plugin-Daten.
 	 */
-
 	private static function _localize_plugin( $path ) {
 		 /* Check path */
 		if ( strpos( $path, WP_PLUGIN_DIR ) === false ) {
@@ -293,17 +283,15 @@ class Snitch_HTTP {
 		}
 	}
 
-
 	/**
 	 * Suche nach einem Theme anhand des Pfades
 	 *
 	 * @since   0.0.1
 	 * @change  0.0.5
 	 *
-	 * @param   string $path  Pfad einer Datei aus dem Theme-Ordner
-	 * @return  object  void   Objekt mit Theme-Daten
+	 * @param   string $path  Pfad einer Datei aus dem Theme-Ordner.
+	 * @return  object  void   Objekt mit Theme-Daten.
 	 */
-
 	private static function _localize_theme( $path ) {
 		/* Check path */
 		if ( strpos( $path, get_theme_root() ) === false ) {
@@ -334,20 +322,18 @@ class Snitch_HTTP {
 		return false;
 	}
 
-
 	/**
 	 * Liest übermittelte POST-Daten ein
 	 *
 	 * @since   1.0.8
 	 * @change  1.0.8
 	 *
-	 * @param   array $args  Argumente der Anfrage
+	 * @param   array $args  Argumente der Anfrage.
 	 * @return  string  void   BODY der Anfrage (POST-Daten)
 	 */
-
 	private static function _get_postdata( $args ) {
 		/* No POST data? */
-		if ( empty( $args['method'] ) or $args['method'] !== 'POST' ) {
+		if ( empty( $args['method'] ) || 'POST' !== $args['method'] ) {
 			return null;
 		}
 
@@ -359,17 +345,15 @@ class Snitch_HTTP {
 		return $args['body'];
 	}
 
-
 	/**
 	 * Prüft, ob die aufgerufene URL eine Blog-interne ist
 	 *
 	 * @since   1.0.9
 	 * @change  1.0.9
 	 *
-	 * @param   string $host  Zu prüfender Host
+	 * @param   string $host  Zu prüfender Host.
 	 * @return  boolean         TRUE bei interner URL
 	 */
-
 	private static function _is_internal( $host ) {
 		/* Get the blog host */
 		$blog_host = parse_url(

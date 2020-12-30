@@ -1,31 +1,28 @@
 <?php
-
+/**
+ * Snitch class initializing the hooks and actions.
+ *
+ * @package Snitch
+ */
 
 /* Quit */
-defined( 'ABSPATH' ) or exit;
-
+defined( 'ABSPATH' ) || exit;
 
 /**
- * Snitch
+ * Class Snitch.
  *
  * @since 0.0.1
  */
-
 class Snitch {
-
-
-
 	/**
 	 * Pseudo-Konstruktor der Klasse
 	 *
 	 * @since   0.0.1
 	 * @change  0.0.1
 	 */
-
 	public static function instance() {
 		 new self();
 	}
-
 
 	/**
 	 * Konstruktor der Klasse
@@ -33,7 +30,6 @@ class Snitch {
 	 * @since   0.0.1
 	 * @change  1.0.5
 	 */
-
 	public function __construct() {
 		 /* Register CPT */
 		add_action(
@@ -82,7 +78,10 @@ class Snitch {
 		}
 
 		/* Skip secondary hooks */
-		if ( ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) or ( defined( 'DOING_CRON' ) && DOING_CRON ) or ( defined( 'DOING_AJAX' ) && DOING_AJAX ) or ( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) ) {
+		if ( ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+			 || ( defined( 'DOING_CRON' ) && DOING_CRON )
+			 || ( defined( 'DOING_AJAX' ) && DOING_AJAX )
+			 || ( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) ) {
 			return;
 		}
 
@@ -137,21 +136,19 @@ class Snitch {
 		);
 	}
 
-
 	/**
 	 * Hinzufügen der Meta-Links
 	 *
 	 * @since   0.0.1
 	 * @change  1.1.2
 	 *
-	 * @param   array  $data  Array mit Links
-	 * @param   string $file  Pfad des Plugins
+	 * @param   array  $data  Array mit Links.
+	 * @param   string $file  Pfad des Plugins.
 	 * @return  array          Array mit erweiterten Links
 	 */
-
 	public static function meta_links( $data, $file ) {
 		 /* Skip the rest */
-		if ( $file !== SNITCH_BASE ) {
+		if ( SNITCH_BASE !== $file ) {
 			return $data;
 		}
 
@@ -171,10 +168,9 @@ class Snitch {
 	 * @since   0.0.4
 	 * @change  1.1.2
 	 *
-	 * @param   array $data  Bereits existente Links
+	 * @param   array $data  Bereits existente Links.
 	 * @return  array  $data  Erweitertes Array mit Links
 	 */
-
 	public static function action_links( $data ) {
 		/* Rechte? */
 		if ( ! current_user_can( 'manage_options' ) ) {
@@ -198,17 +194,16 @@ class Snitch {
 		);
 	}
 
-
 	/**
 	 * Ausgabe des Administrator-Hinweises
 	 *
 	 * @since   0.0.1
 	 * @change  1.1.2
 	 */
-
 	public static function updated_notice() {
 		/* Skip requests */
-		if ( $GLOBALS['pagenow'] !== 'plugins.php' or ! ( defined( 'WP_HTTP_BLOCK_EXTERNAL' ) && WP_HTTP_BLOCK_EXTERNAL ) ) {
+		if ( 'plugins.php' !== $GLOBALS['pagenow']
+			 || ! ( defined( 'WP_HTTP_BLOCK_EXTERNAL' ) && WP_HTTP_BLOCK_EXTERNAL ) ) {
 			return;
 		}
 
@@ -219,14 +214,12 @@ class Snitch {
 		);
 	}
 
-
 	/**
 	 * Fügt Stylesheets hinzu
 	 *
 	 * @since   0.0.1
 	 * @change  1.0.1
 	 */
-
 	public static function add_css() {
 		/* Register styles */
 		wp_register_style(
@@ -241,17 +234,15 @@ class Snitch {
 		wp_enqueue_style( 'snitch-global' );
 	}
 
-
 	/**
 	 * Rückgabe der Optionen
 	 *
 	 * @since   0.0.1
 	 * @change  0.0.5
 	 *
-	 * @param   string $item  Feldname der Option [optional]
+	 * @param   string $item  Feldname der Option [optional].
 	 * @return  mixed          Alle oder eine bestimmte Option
 	 */
-
 	public static function get_options( $item = null ) {
 		/* Get options */
 		$options = get_site_option( 'snitch' );
@@ -259,17 +250,15 @@ class Snitch {
 		return ( empty( $item ) ? $options : @$options[ $item ] );
 	}
 
-
 	/**
 	 * Rückgabe der Optionen
 	 *
 	 * @since   0.0.1
 	 * @change  0.0.1
 	 *
-	 * @param   string $key    Feldname der Option
-	 * @param   mixed  $value  Wert der Option
+	 * @param   string $key    Feldname der Option.
+	 * @param   mixed  $value  Wert der Option.
 	 */
-
 	public static function update_options( $key, $value ) {
 		update_site_option(
 			'snitch',
@@ -282,17 +271,15 @@ class Snitch {
 		);
 	}
 
-
 	/**
 	 * Fügt hinzu oder entfernt Nutzer-Berechtigungen
 	 *
 	 * @since   0.0.5
 	 * @change  0.0.5
 	 *
-	 * @param   string $role    Benutzerkennung
-	 * @param   string $action  Auszuführende Aktion
+	 * @param   string $role    Benutzerkennung.
+	 * @param   string $action  Auszuführende Aktion.
 	 */
-
 	private static function _handle_caps( $role, $action ) {
 		/* Get role */
 		$role = get_role( $role );
@@ -323,14 +310,12 @@ class Snitch {
 		}
 	}
 
-
 	/**
 	 * Aktionen bei der Aktivierung des Plugins
 	 *
 	 * @since   0.0.4
 	 * @change  1.0.5
 	 */
-
 	public static function activation() {
 		/* Add default options */
 		add_site_option(
@@ -356,18 +341,15 @@ class Snitch {
 		}
 	}
 
-
 	/**
 	 * Aktionen bei der Deaktivierung des Plugins
 	 *
 	 * @since   1.0.5
 	 * @change  1.0.5
 	 */
-
 	public static function deactivation() {
 		 wp_clear_scheduled_hook( 'snitch_cleanup' );
 	}
-
 
 	/**
 	 * Aktionen bei der Deinstallation des Plugins
@@ -375,7 +357,6 @@ class Snitch {
 	 * @since   0.0.4
 	 * @change  1.0.3
 	 */
-
 	public static function uninstall() {
 		/* Unregister CPT */
 		Snitch_CPT::delete_items();

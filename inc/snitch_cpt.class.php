@@ -1,28 +1,27 @@
 <?php
-
+/**
+ * Snitch_CPT class registering a custom post type
+ * and defining the actions for the page displaying posts of this post type.
+ *
+ * @package Snitch
+ */
 
 /* Quit */
-defined( 'ABSPATH' ) or exit;
-
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Snitch_CPT
  *
  * @since 0.0.1
  */
-
 class Snitch_CPT {
-
-
-
 	/**
 	 * Plugin options
 	 *
+	 * @var array
 	 * @since   0.0.1
 	 */
-
 	protected static $options = array();
-
 
 	/**
 	 * Pseudo-Konstruktor der Klasse
@@ -30,11 +29,9 @@ class Snitch_CPT {
 	 * @since   0.0.1
 	 * @change  0.0.1
 	 */
-
 	public static function instance() {
 		 new self();
 	}
-
 
 	/**
 	 * Registrierung der Post Types und Aktionen
@@ -42,7 +39,6 @@ class Snitch_CPT {
 	 * @since   0.0.1
 	 * @change  1.1.3
 	 */
-
 	public function __construct() {
 		 /* Set plugin options */
 		self::$options = Snitch::get_options();
@@ -201,14 +197,12 @@ class Snitch_CPT {
 		);
 	}
 
-
 	/**
 	 * Fügt Stylesheets hinzu
 	 *
 	 * @since   0.0.5
 	 * @change  1.0.8
 	 */
-
 	public static function add_css() {
 		/* Local anesthesia */
 		if ( ! self::_current_screen( 'edit-snitch' ) ) {
@@ -231,18 +225,15 @@ class Snitch_CPT {
 		wp_enqueue_style( 'snitch-cpt' );
 	}
 
-
 	/**
 	 * Entfernt den Menüeintrag in der Sidebar
 	 *
 	 * @since   0.0.1
 	 * @change  0.0.1
 	 */
-
 	public static function hide_menu() {
 		unset( $GLOBALS['submenu']['edit.php?post_type=snitch'][10] );
 	}
-
 
 	/**
 	 * Definition der Filter-Auswahlbox
@@ -250,7 +241,6 @@ class Snitch_CPT {
 	 * @since   0.0.1
 	 * @change  1.1.2
 	 */
-
 	public static function actions_above_table() {
 		/* Local anesthesia */
 		if ( ! self::_current_screen( 'edit-snitch' ) ) {
@@ -284,17 +274,14 @@ class Snitch_CPT {
 		}
 	}
 
-
 	/**
 	 * Führt den Dropdown Filter aus
 	 *
 	 * @since   0.0.3
 	 * @change  1.0.4
 	 *
-	 * @param   array $query  Array mit Abfragewerten
-	 * @return  array  $query  Array mit modifizierten Abfragewerten
+	 * @param   array $query  Array mit Abfragewerten.
 	 */
-
 	public static function expand_query_vars( $query ) {
 		if ( ! empty( $_GET['snitch_state_filter'] ) ) {
 			$query->query_vars['meta_key'] = '_snitch_state';
@@ -302,17 +289,15 @@ class Snitch_CPT {
 		}
 	}
 
-
 	/**
 	 * Führt die Filterung via Dropdown aus
 	 *
 	 * @since   0.0.3
 	 * @change  1.0.4
 	 *
-	 * @param   array $vars  Array mit Abfragewerten
+	 * @param   array $vars  Array mit Abfragewerten.
 	 * @return  array  $vars  Array mit modifizierten Abfragewerten
 	 */
-
 	public static function orderby_search_columns( $vars ) {
 		/* Only Snitch */
 		if ( ! self::_current_screen( 'edit-snitch' ) ) {
@@ -358,7 +343,7 @@ class Snitch_CPT {
 		}
 
 		/* CPT orderby */
-		if ( empty( $vars['orderby'] ) or ! in_array( $vars['orderby'], array( 'url', 'file', 'state', 'code' ) ) ) {
+		if ( empty( $vars['orderby'] ) || ! in_array( $vars['orderby'], array( 'url', 'file', 'state', 'code' ) ) ) {
 			return $vars;
 		}
 
@@ -374,17 +359,15 @@ class Snitch_CPT {
 		);
 	}
 
-
 	/**
 	 * Ändert AND auf OR bei der MySQL-Abfrage
 	 *
 	 * @since   1.0.4
 	 * @change  1.0.4
 	 *
-	 * @param   array $join_where  JOIN- und WHERE-Abfragen
+	 * @param   array $join_where  JOIN- und WHERE-Abfragen.
 	 * @return  array  $join_where  JOIN- und WHERE-Abfragen
 	 */
-
 	public static function modify_and_or( $join_where ) {
 		if ( ! empty( $join_where['where'] ) ) {
 			$join_where['where'] = str_replace(
@@ -397,7 +380,6 @@ class Snitch_CPT {
 		return $join_where;
 	}
 
-
 	/**
 	 * Verwaltung der benutzerdefinierten Spalten
 	 *
@@ -408,7 +390,6 @@ class Snitch_CPT {
 	 *
 	 * @return  array  $columns  Array mit Spalten
 	 */
-
 	public static function manage_columns() {
 		return (array) apply_filters(
 			'snitch_manage_columns',
@@ -425,7 +406,6 @@ class Snitch_CPT {
 		);
 	}
 
-
 	/**
 	 * Verwaltung der sortierbaren Spalten
 	 *
@@ -436,7 +416,6 @@ class Snitch_CPT {
 	 *
 	 * @return  array  $columns  Array mit Spalten
 	 */
-
 	public static function sortable_columns() {
 		return (array) apply_filters(
 			'snitch_sortable_columns',
@@ -450,7 +429,6 @@ class Snitch_CPT {
 		);
 	}
 
-
 	/**
 	 * Verwaltung der benutzerdefinierten Spalten
 	 *
@@ -459,10 +437,9 @@ class Snitch_CPT {
 	 *
 	 * @hook    array    snitch_custom_column
 	 *
-	 * @param   string  $column  Aktueller Spaltenname
-	 * @param   integer $post_id  Post-ID
+	 * @param   string  $column  Aktueller Spaltenname.
+	 * @param   integer $post_id  Post-ID.
 	 */
-
 	public static function custom_column( $column, $post_id ) {
 		 /* Column types */
 		$types = (array) apply_filters(
@@ -494,16 +471,14 @@ class Snitch_CPT {
 		}
 	}
 
-
 	/**
 	 * HTML-Ausgabe der URL
 	 *
 	 * @since   0.0.1
 	 * @change  1.0.11
 	 *
-	 * @param   integer $post_id  Post-ID
+	 * @param   integer $post_id  Post-ID.
 	 */
-
 	private static function _html_url( $post_id ) {
 		 /* Init data */
 		$url = self::_get_meta( $post_id, 'url' );
@@ -529,16 +504,14 @@ class Snitch_CPT {
 		);
 	}
 
-
 	/**
 	 * HTML-Ausgabe der Herkunftsdatei
 	 *
 	 * @since   0.0.1
 	 * @change  1.0.11
 	 *
-	 * @param   integer $post_id  Post-ID
+	 * @param   integer $post_id  Post-ID.
 	 */
-
 	private static function _html_file( $post_id ) {
 		/* Init data */
 		$file = self::_get_meta( $post_id, 'file' );
@@ -576,35 +549,33 @@ class Snitch_CPT {
 		);
 	}
 
-
 	/**
 	 * HTML-Ausgabe des Zustandes
 	 *
 	 * @since   0.0.1
 	 * @change  1.1.2
 	 *
-	 * @param   integer $post_id  Post-ID
+	 * @param   integer $post_id  Post-ID.
 	 */
-
 	private static function _html_state( $post_id ) {
 		/* Item state */
 		$state = self::_get_meta( $post_id, 'state' );
 
 		/* State values */
 		$states = array(
-			SNITCH_BLOCKED    => 'Blocked',
-			SNITCH_AUTHORIZED => 'Authorized',
+			SNITCH_BLOCKED    => __( 'Blocked', 'snitch' ),
+			SNITCH_AUTHORIZED => __( 'Authorized', 'snitch' ),
 		);
 
 		/* Print the state */
 		echo sprintf(
 			'<span class="%s">%s</span>',
 			strtolower( $states[ $state ] ),
-			esc_html__( $states[ $state ], 'snitch' )
+			esc_html( $states[ $state ] )
 		);
 
 		/* Colorize blocked item */
-		if ( $state == SNITCH_BLOCKED ) {
+		if ( SNITCH_BLOCKED === $state ) {
 			echo sprintf(
 				'<style>#post-%1$d {background:rgba(248, 234, 232, 0.8)}#post-%1$d.alternate {background:#f8eae8}</style>',
 				$post_id
@@ -612,15 +583,13 @@ class Snitch_CPT {
 		}
 	}
 
-
 	/**
 	 * HTML-Ausgabe des Schemes
 	 *
 	 * @since   1.1.8
 	 *
-	 * @param   integer $post_id  Post-ID
+	 * @param   integer $post_id  Post-ID.
 	 */
-
 	private static function _html_https( $post_id ) {
 		/* Item state */
 		$url = self::_get_meta( $post_id, 'url' );
@@ -631,39 +600,34 @@ class Snitch_CPT {
 
 	}
 
-
-
 	/**
 	 * HTML-Ausgabe des Status-Codes
 	 *
 	 * @since   0.0.1
 	 * @change  1.0.2
 	 *
-	 * @param   integer $post_id  Post-ID
+	 * @param   integer $post_id  Post-ID.
 	 */
-
 	private static function _html_code( $post_id ) {
 		echo self::_get_meta( $post_id, 'code' );
 	}
-
 
 	/**
 	 * HTML-Ausgabe der Dauer
 	 *
 	 * @since   1.1.0
 	 *
-	 * @param   integer $post_id  Post-ID
+	 * @param   integer $post_id  Post-ID.
 	 */
-
 	private static function _html_duration( $post_id ) {
 		if ( $duration = self::_get_meta( $post_id, 'duration' ) ) {
 			echo sprintf(
+				/* translators: duration in seconds */
 				__( '%s seconds', 'snitch' ),
 				$duration
 			);
 		}
 	}
-
 
 	/**
 	 * HTML-Ausgabe des Datums
@@ -671,16 +635,15 @@ class Snitch_CPT {
 	 * @since   0.0.2
 	 * @change  0.0.2
 	 *
-	 * @param   integer $post_id  Post-ID
+	 * @param   integer $post_id  Post-ID.
 	 */
-
 	private static function _html_created( $post_id ) {
 		echo sprintf(
+			/* translators: duration (e. g. "15 mins") since the post was created */
 			__( '%s ago', 'snitch' ),
 			human_time_diff( get_post_time( 'G', true, $post_id ) )
 		);
 	}
-
 
 	/**
 	 * HTML-Ausgabe der POST-Daten
@@ -688,9 +651,8 @@ class Snitch_CPT {
 	 * @since   1.0.8
 	 * @change  1.1.2
 	 *
-	 * @param   integer $post_id  Post-ID
+	 * @param   integer $post_id  Post-ID.
 	 */
-
 	private static function _html_postdata( $post_id ) {
 		/* Item post data */
 		$postdata = self::_get_meta( $post_id, 'postdata' );
@@ -730,22 +692,29 @@ class Snitch_CPT {
 		);
 	}
 
-
 	/**
 	 * Generierung der Action-Links
 	 *
 	 * @since   0.0.1
 	 * @change  1.1.2
 	 *
-	 * @param   integer $post_id      Post-ID
-	 * @param   string  $type         Typ des Links (host|file)
-	 * @param   boolean $blacklisted  Bereits in der Blacklist?
+	 * @param   integer $post_id      Post-ID.
+	 * @param   string  $type         Typ des Links (host|file).
+	 * @param   boolean $blacklisted  Bereits in der Blacklist.
 	 * @return  string                 Zusammengebauter Action-Link
 	 */
-
 	private static function _action_link( $post_id, $type, $blacklisted = false ) {
-		 /* Link action */
-		$action = ( $blacklisted ? 'unblock' : 'block' );
+		if ( $blacklisted ) {
+			$action = 'unblock';
+			$text = 'host' === $type
+				? __( 'Unblock this host', 'snitch' )
+				: __( 'Unblock this file', 'snitch' );
+		} else {
+			$action = 'block';
+			$text = 'host' === $type
+				? __( 'Block this host', 'snitch' )
+				: __( 'Block this file', 'snitch' );
+		}
 
 		/* Block link */
 		return sprintf(
@@ -766,17 +735,9 @@ class Snitch_CPT {
 				)
 			),
 			$action,
-			esc_html__(
-				sprintf(
-					'%s this %s',
-					ucfirst( $action ),
-					$type
-				),
-				'snitch'
-			)
+			esc_html( $text )
 		);
 	}
-
 
 	/**
 	 * Legt einen Custom Post Type Eintrag an
@@ -784,10 +745,9 @@ class Snitch_CPT {
 	 * @since   0.0.1
 	 * @change  1.0.2
 	 *
-	 * @param   array $meta     Array mit Post-Metadaten
+	 * @param   array $meta     Array mit Post-Metadaten.
 	 * @return  integer  $post_id  Post-ID
 	 */
-
 	public static function insert_post( $meta ) {
 		/* Empty? */
 		if ( empty( $meta ) ) {
@@ -815,14 +775,12 @@ class Snitch_CPT {
 		return $post_id;
 	}
 
-
 	/**
 	 * Ausführung der Link-Aktionen
 	 *
 	 * @since   0.0.1
 	 * @change  1.0.12
 	 */
-
 	public static function bulk_action() {
 		/* Local anesthesia */
 		if ( ! self::_current_screen( 'edit-snitch' ) ) {
@@ -857,7 +815,7 @@ class Snitch_CPT {
 		}
 
 		/* Check for action and type */
-		if ( empty( $_GET['action'] ) or empty( $_GET['type'] ) ) {
+		if ( empty( $_GET['action'] ) || empty( $_GET['type'] ) ) {
 			return;
 		}
 
@@ -866,7 +824,7 @@ class Snitch_CPT {
 		$type = $_GET['type'];
 
 		/* Validate action and type */
-		if ( ! in_array( $action, array( 'block', 'unblock' ) ) or ! in_array( $type, array( 'host', 'file' ) ) ) {
+		if ( ! in_array( $action, array( 'block', 'unblock' ) ) || ! in_array( $type, array( 'host', 'file' ) ) ) {
 			return;
 		}
 
@@ -910,7 +868,7 @@ class Snitch_CPT {
 			add_query_arg(
 				array(
 					'post_type' => 'snitch',
-					'updated'   => count( $ids ) * ( $action === 'unblock' ? -1 : 1 ),
+					'updated'   => count( $ids ) * ( 'unblock' === $action ? -1 : 1 ),
 					'paged'     => self::_get_pagenum(),
 				),
 				admin_url( 'edit.php' )
@@ -921,30 +879,27 @@ class Snitch_CPT {
 		exit();
 	}
 
-
 	/**
 	 * Ausgabe des Administrator-Hinweises
 	 *
 	 * @since   0.0.1
 	 * @change  1.1.2
 	 */
-
 	public static function updated_notice() {
 		/* Skip requests */
-		if ( $GLOBALS['pagenow'] !== 'edit.php' or $GLOBALS['typenow'] !== 'snitch' or empty( $_GET['updated'] ) ) {
+		if ( 'edit.php' !== $GLOBALS['pagenow'] || 'snitch' !== $GLOBALS['typenow'] || empty( $_GET['updated'] ) ) {
 			return;
 		}
 
 		/* Print */
+		$update_message = $_GET['updated'] > 0
+			? __( 'New rule added to the Snitch filter. Matches are labeled in red.', 'snitch' )
+			: __( 'An existing rule removed from the Snitch filter.', 'snitch' );
 		echo sprintf(
 			'<div class="updated"><p>%s</p></div>',
-			esc_html__(
-				( $_GET['updated'] > 0 ? 'New rule added to the Snitch filter. Matches are labeled in red.' : 'An existing rule removed from the Snitch filter.' ),
-				'snitch'
-			)
+			esc_html( $update_message )
 		);
 	}
-
 
 	/**
 	 * Aktuelle Seitennummer der CPT-Ansicht
@@ -954,11 +909,9 @@ class Snitch_CPT {
 	 *
 	 * @return  integer  void  Ermittelte Seitennummer
 	 */
-
 	private static function _get_pagenum() {
 		return ( empty( $GLOBALS['pagenum'] ) ? _get_list_table( 'WP_Posts_List_Table' )->get_pagenum() : $GLOBALS['pagenum'] );
 	}
-
 
 	/**
 	 * Rückgabe eines Custom Fields
@@ -966,11 +919,10 @@ class Snitch_CPT {
 	 * @since   1.0.2
 	 * @change  1.0.2
 	 *
-	 * @param   integer $post_id  Post-ID
-	 * @param   string  $key      Key des Fields
+	 * @param   integer $post_id  Post-ID.
+	 * @param   string  $key      Key des Fields.
 	 * @return  mixed    void      Wert des Fields
 	 */
-
 	private static function _get_meta( $post_id, $key ) {
 		if ( $value = get_post_meta( $post_id, '_snitch_' . $key, true ) ) {
 			return $value;
@@ -979,17 +931,15 @@ class Snitch_CPT {
 		return get_post_meta( $post_id, $key, true );
 	}
 
-
 	/**
 	 * Erweitert die sekundäre Links-Leiste
 	 *
 	 * @since   0.0.4
 	 * @change  1.1.5
 	 *
-	 * @param   array $views  Array mit verfügbaren Links
+	 * @param   array $views  Array mit verfügbaren Links.
 	 * @return  array  $views  Array mit modifizierten Links
 	 */
-
 	public static function views_edit( $views ) {
 		$links = array(
 			'paypal' => '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TD4AMD2D8EMZW" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Donate', 'snitch' ) . '</a>',
@@ -1000,7 +950,6 @@ class Snitch_CPT {
 		return $links;
 	}
 
-
 	/**
 	 * Bereinigt die Datenbank durch Löschung älterer Einträge
 	 *
@@ -1009,7 +958,6 @@ class Snitch_CPT {
 	 *
 	 * @hook    integer  snitch_cleanup_items
 	 */
-
 	public static function cleanup_items() {
 		self::delete_items(
 			(int) apply_filters(
@@ -1019,16 +967,14 @@ class Snitch_CPT {
 		);
 	}
 
-
 	/**
 	 * Löscht Einträge in der Datenbank
 	 *
 	 * @since   1.0.3
 	 * @change  1.0.6
 	 *
-	 * @param   integer $offset  Versatz für DELETE [optional]
+	 * @param   integer $offset  Versatz für DELETE [optional].
 	 */
-
 	public static function delete_items( $offset = 0 ) {
 		/* Convert */
 		$offset = (int) $offset;
@@ -1051,6 +997,7 @@ class Snitch_CPT {
 		$wpdb->query(
 			sprintf(
 				"DELETE FROM `$wpdb->postmeta` WHERE `post_id` IN (%s)",
+				// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- allow sub query.
 				$subquery
 			)
 		);
@@ -1059,11 +1006,11 @@ class Snitch_CPT {
 		$wpdb->query(
 			sprintf(
 				"DELETE FROM `$wpdb->posts` WHERE `ID` IN (%s)",
+				// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- allow sub query.
 				$subquery
 			)
 		);
 	}
-
 
 	/**
 	 * Prüfung auf den aktuellen Screen
@@ -1071,10 +1018,9 @@ class Snitch_CPT {
 	 * @since   1.0.4
 	 * @change  1.0.4
 	 *
-	 * @param   integer $id   Screen-ID
+	 * @param   integer $id   Screen-ID.
 	 * @return  boolean  void  TRUE bei Erfolg
 	 */
-
 	private static function _current_screen( $id ) {
 		$screen = get_current_screen();
 
@@ -1085,8 +1031,8 @@ class Snitch_CPT {
 	 * Default row actions unterdrücken
 	 *
 	 * @since   1.1.7
-	 * @param   array  $actions  Array mit den default Aktionen auf ein Post (Edit, Quickedit, löschen)
-	 * @param   objekt $post
+	 * @param   array  $actions  Array mit den default Aktionen auf ein Post (Edit, Quickedit, löschen).
+	 * @param   object $post the post.
 	 * @return  array   $actions
 	 */
 	public static function row_actions( $actions, $post ) {

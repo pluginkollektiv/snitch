@@ -1,30 +1,28 @@
 <?php
-
+/**
+ * Snitch_Blacklist class for updating the settings which types are blocked.
+ *
+ * @package Snitch
+ */
 
 /* Quit */
-defined( 'ABSPATH' ) or exit;
-
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Snitch_Blacklist
  *
  * @since 0.0.1
  */
-
 class Snitch_Blacklist {
-
-
-
 	/**
 	 * Blockiert Einträge eines bestimmten Typs
 	 *
 	 * @since   0.0.1
 	 * @change  0.0.1
 	 *
-	 * @param   array  $item  Array mit Einträgen
-	 * @param   string $type  Typ des Eintrags (hosts|files)
+	 * @param   array  $items  Array mit Einträgen.
+	 * @param   string $type  Typ des Eintrags (hosts|files).
 	 */
-
 	public static function block( $items, $type ) {
 		 /* Type check */
 		if ( ! in_array( $type, array( 'hosts', 'files' ) ) ) {
@@ -43,17 +41,15 @@ class Snitch_Blacklist {
 		);
 	}
 
-
 	/**
 	 * Gibt Einträge eines bestimmten Typs frei
 	 *
 	 * @since   0.0.1
 	 * @change  0.0.1
 	 *
-	 * @param   array  $item  Array mit Einträgen
-	 * @param   string $type  Typ des Eintrags (hosts|files)
+	 * @param   array  $items  Array mit Einträgen.
+	 * @param   string $type  Typ des Eintrags (hosts|files).
 	 */
-
 	public static function unblock( $items, $type ) {
 		/* Type check */
 		if ( ! in_array( $type, array( 'hosts', 'files' ) ) ) {
@@ -70,7 +66,7 @@ class Snitch_Blacklist {
 		foreach ( $items as $item ) {
 			$key = array_search( $item, $options );
 
-			if ( $key !== false ) {
+			if ( false !== $key ) {
 				unset( $options[ $key ] );
 			}
 		}

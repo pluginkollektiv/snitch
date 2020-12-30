@@ -1,18 +1,18 @@
 <?php
-/*
-Plugin Name: Snitch
-Description: Network monitor for WordPress. Connection overview for monitoring and controlling outgoing data traffic.
-Author:      pluginkollektiv
-Author URI:  https://pluginkollektiv.org
-Plugin URI:  https://snitch.pluginkollektiv.org/
-License:     GPLv3 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Version:     1.1.9
-Text Domain: snitch
-Domain Path: /lang
-GitHub Plugin URI: https://github.com/pluginkollektiv/snitch
-GitHub Branch: master
-*/
+/**
+ * Plugin Name: Snitch
+ * Description: Network monitor for WordPress. Connection overview for monitoring and controlling outgoing data traffic.
+ * Author:      pluginkollektiv
+ * Author URI:  https://pluginkollektiv.org
+ * Plugin URI:  https://snitch.pluginkollektiv.org
+ * License:     GPLv3 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Version:     1.1.9
+ * Text Domain: snitch
+ * Domain Path: /lang
+ *
+ * @package Snitch
+ */
 
 /*
 Copyright (C)  2013-2015 Sergej Müller
@@ -33,12 +33,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-
 /* Quit */
-defined( 'ABSPATH' ) or exit;
+defined( 'ABSPATH' ) || exit;
 
-
-/* Konstanten */
+/* Constants */
 define( 'SNITCH_FILE', __FILE__ );
 define( 'SNITCH_DIR', dirname( __FILE__ ) );
 define( 'SNITCH_BASE', plugin_basename( __FILE__ ) );
@@ -46,7 +44,7 @@ define( 'SNITCH_BLOCKED', 1 );
 define( 'SNITCH_AUTHORIZED', -1 );
 define( 'SNITCH_URL', plugin_dir_url( __FILE__ ) );
 
-/* Hooks */
+/* Actions */
 add_action(
 	'plugins_loaded',
 	array(
@@ -54,7 +52,6 @@ add_action(
 		'instance',
 	)
 );
-
 
 /* Hooks */
 register_activation_hook(
@@ -83,7 +80,11 @@ register_uninstall_hook(
 /* Autoload Init */
 spl_autoload_register( 'snitch_autoload' );
 
-/* Autoload Funktion */
+/**
+ * Autoload the class.
+ *
+ * @param string $class the class name.
+ */
 function snitch_autoload( $class ) {
 	if ( in_array( $class, array( 'Snitch', 'Snitch_HTTP', 'Snitch_CPT', 'Snitch_Blacklist' ) ) ) {
 		require_once(
