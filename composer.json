@@ -1,0 +1,49 @@
+{
+  "name": "pluginkollektiv/snitch",
+  "description": "Network monitor for WordPress",
+  "license": "GPL-3.0-or-later",
+  "type": "wordpress-plugin",
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "statistics"
+  ],
+  "require": {
+    "php": "^5.2|^7|^8"
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+    "matthiasmullie/minify": "^1.3",
+    "squizlabs/php_codesniffer": "^3.5",
+    "phpcompatibility/phpcompatibility-wp": "^2.1",
+    "wp-coding-standards/wpcs": "^2.3"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "@build"
+    ],
+    "post-update-cmd": [
+      "@build"
+    ],
+    "build": [
+      "minifycss css/cpt.css > css/cpt.min.css",
+      "minifycss css/global.css > css/global.min.css"
+    ],
+    "cs": [
+      "@lint-php"
+    ],
+    "csfix": [
+      "phpcbf --standard=phpcs.xml"
+    ],
+    "lint-all": [
+      "@lint-php",
+      "@lint-css"
+    ],
+    "lint-css": [
+      "npx stylelint css/cpt.css css/global.css"
+    ],
+    "lint-php": [
+      "phpcs --standard=phpcs.xml -s"
+    ]
+  }
+}

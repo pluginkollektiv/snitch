@@ -2,47 +2,45 @@
 
 
 /* Quit */
-defined('ABSPATH') OR exit;
+defined( 'ABSPATH' ) or exit;
 
 
 /**
-* Snitch
-*
-* @since 0.0.1
-*/
+ * Snitch
+ *
+ * @since 0.0.1
+ */
 
-class Snitch
-{
+class Snitch {
+
 
 
 	/**
-	* Pseudo-Konstruktor der Klasse
-	*
-	* @since   0.0.1
-	* @change  0.0.1
-	*/
+	 * Pseudo-Konstruktor der Klasse
+	 *
+	 * @since   0.0.1
+	 * @change  0.0.1
+	 */
 
-	public static function instance()
-	{
-		new self();
+	public static function instance() {
+		 new self();
 	}
 
 
 	/**
-	* Konstruktor der Klasse
-	*
-	* @since   0.0.1
-	* @change  1.0.5
-	*/
+	 * Konstruktor der Klasse
+	 *
+	 * @since   0.0.1
+	 * @change  1.0.5
+	 */
 
-	public function __construct()
-	{
-		/* Register CPT */
+	public function __construct() {
+		 /* Register CPT */
 		add_action(
 			'init',
 			array(
 				'Snitch_CPT',
-				'instance'
+				'instance',
 			),
 			1
 		);
@@ -52,7 +50,7 @@ class Snitch
 			'pre_http_request',
 			array(
 				'Snitch_HTTP',
-				'inspect_request'
+				'inspect_request',
 			),
 			10,
 			3
@@ -63,7 +61,7 @@ class Snitch
 			'http_api_debug',
 			array(
 				'Snitch_HTTP',
-				'log_response'
+				'log_response',
 			),
 			10,
 			5
@@ -74,7 +72,7 @@ class Snitch
 			'snitch_cleanup',
 			array(
 				'Snitch_CPT',
-				'cleanup_items'
+				'cleanup_items',
 			)
 		);
 
@@ -84,7 +82,7 @@ class Snitch
 		}
 
 		/* Skip secondary hooks */
-		if ( (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) OR (defined('DOING_CRON') && DOING_CRON) OR (defined('DOING_AJAX') && DOING_AJAX) OR (defined('XMLRPC_REQUEST') && XMLRPC_REQUEST) ) {
+		if ( ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) or ( defined( 'DOING_CRON' ) && DOING_CRON ) or ( defined( 'DOING_AJAX' ) && DOING_AJAX ) or ( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) ) {
 			return;
 		}
 
@@ -93,7 +91,7 @@ class Snitch
 			'admin_print_styles',
 			array(
 				__CLASS__,
-				'add_css'
+				'add_css',
 			)
 		);
 
@@ -102,14 +100,14 @@ class Snitch
 			'admin_notices',
 			array(
 				__CLASS__,
-				'updated_notice'
+				'updated_notice',
 			)
 		);
 		add_action(
 			'network_admin_notices',
 			array(
 				__CLASS__,
-				'updated_notice'
+				'updated_notice',
 			)
 		);
 
@@ -118,16 +116,16 @@ class Snitch
 			'plugin_row_meta',
 			array(
 				__CLASS__,
-				'meta_links'
+				'meta_links',
 			),
 			10,
 			2
 		);
 		add_filter(
-			'plugin_action_links_' .SNITCH_BASE,
+			'plugin_action_links_' . SNITCH_BASE,
 			array(
 				__CLASS__,
-				'action_links'
+				'action_links',
 			)
 		);
 
@@ -135,25 +133,24 @@ class Snitch
 		load_plugin_textdomain(
 			'snitch',
 			false,
-			dirname(SNITCH_BASE). '/lang'
+			dirname( SNITCH_BASE ) . '/lang'
 		);
 	}
 
 
 	/**
-	* Hinzufügen der Meta-Links
-	*
-	* @since   0.0.1
-	* @change  1.1.2
-	*
-	* @param   array   $data  Array mit Links
-	* @param   string  $file  Pfad des Plugins
-	* @return  array          Array mit erweiterten Links
-	*/
+	 * Hinzufügen der Meta-Links
+	 *
+	 * @since   0.0.1
+	 * @change  1.1.2
+	 *
+	 * @param   array  $data  Array mit Links
+	 * @param   string $file  Pfad des Plugins
+	 * @return  array          Array mit erweiterten Links
+	 */
 
-	public static function meta_links($data, $file)
-	{
-		/* Skip the rest */
+	public static function meta_links( $data, $file ) {
+		 /* Skip the rest */
 		if ( $file !== SNITCH_BASE ) {
 			return $data;
 		}
@@ -162,26 +159,25 @@ class Snitch
 			$data,
 			array(
 				'<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TD4AMD2D8EMZW" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Donate', 'snitch' ) . '</a>',
-				'<a href="https://wordpress.org/support/plugin/snitch" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Support', 'snitch' ) . '</a>'
+				'<a href="https://wordpress.org/support/plugin/snitch" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Support', 'snitch' ) . '</a>',
 			)
 		);
 	}
 
 
 	/**
-	* Hinzufügen der Action-Links
-	*
-	* @since   0.0.4
-	* @change  1.1.2
-	*
-	* @param   array  $data  Bereits existente Links
-	* @return  array  $data  Erweitertes Array mit Links
-	*/
+	 * Hinzufügen der Action-Links
+	 *
+	 * @since   0.0.4
+	 * @change  1.1.2
+	 *
+	 * @param   array $data  Bereits existente Links
+	 * @return  array  $data  Erweitertes Array mit Links
+	 */
 
-	public static function action_links($data)
-	{
+	public static function action_links( $data ) {
 		/* Rechte? */
-		if ( ! current_user_can('manage_options') ) {
+		if ( ! current_user_can( 'manage_options' ) ) {
 			return $data;
 		}
 
@@ -192,48 +188,46 @@ class Snitch
 					'<a href="%s">%s</a>',
 					add_query_arg(
 						array(
-							'post_type' => 'snitch'
+							'post_type' => 'snitch',
 						),
-						admin_url('edit.php')
+						admin_url( 'edit.php' )
 					),
-					esc_html__('Connections', 'snitch')
-				)
+					esc_html__( 'Connections', 'snitch' )
+				),
 			)
 		);
 	}
 
 
 	/**
-	* Ausgabe des Administrator-Hinweises
-	*
-	* @since   0.0.1
-	* @change  1.1.2
-	*/
+	 * Ausgabe des Administrator-Hinweises
+	 *
+	 * @since   0.0.1
+	 * @change  1.1.2
+	 */
 
-	public static function updated_notice()
-	{
+	public static function updated_notice() {
 		/* Skip requests */
-		if ( $GLOBALS['pagenow'] !== 'plugins.php' OR ! (defined('WP_HTTP_BLOCK_EXTERNAL') && WP_HTTP_BLOCK_EXTERNAL) ) {
+		if ( $GLOBALS['pagenow'] !== 'plugins.php' or ! ( defined( 'WP_HTTP_BLOCK_EXTERNAL' ) && WP_HTTP_BLOCK_EXTERNAL ) ) {
 			return;
 		}
 
 		/* Print */
 		echo sprintf(
 			'<div class="error"><p>%s</p></div>',
-			__('Outgoing connections are blocked in <code>wp-config.php</code>. Check the constant WP_HTTP_BLOCK_EXTERNAL.', 'snitch')
+			__( 'Outgoing connections are blocked in <code>wp-config.php</code>. Check the constant WP_HTTP_BLOCK_EXTERNAL.', 'snitch' )
 		);
 	}
 
 
 	/**
-	* Fügt Stylesheets hinzu
-	*
-	* @since   0.0.1
-	* @change  1.0.1
-	*/
+	 * Fügt Stylesheets hinzu
+	 *
+	 * @since   0.0.1
+	 * @change  1.0.1
+	 */
 
-	public static function add_css()
-	{
+	public static function add_css() {
 		/* Register styles */
 		wp_register_style(
 			'snitch-global',
@@ -244,47 +238,45 @@ class Snitch
 		);
 
 		/* Add styles */
-		wp_enqueue_style('snitch-global');
+		wp_enqueue_style( 'snitch-global' );
 	}
 
 
 	/**
-	* Rückgabe der Optionen
-	*
-	* @since   0.0.1
-	* @change  0.0.5
-	*
-	* @param   string  $item  Feldname der Option [optional]
-	* @return  mixed          Alle oder eine bestimmte Option
-	*/
+	 * Rückgabe der Optionen
+	 *
+	 * @since   0.0.1
+	 * @change  0.0.5
+	 *
+	 * @param   string $item  Feldname der Option [optional]
+	 * @return  mixed          Alle oder eine bestimmte Option
+	 */
 
-	public static function get_options($item = NULL)
-	{
+	public static function get_options( $item = null ) {
 		/* Get options */
-		$options = get_site_option('snitch');
+		$options = get_site_option( 'snitch' );
 
-		return ( empty($item) ? $options : @$options[$item] );
+		return ( empty( $item ) ? $options : @$options[ $item ] );
 	}
 
 
 	/**
-	* Rückgabe der Optionen
-	*
-	* @since   0.0.1
-	* @change  0.0.1
-	*
-	* @param   string  $key    Feldname der Option
-	* @param   mixed   $value  Wert der Option
-	*/
+	 * Rückgabe der Optionen
+	 *
+	 * @since   0.0.1
+	 * @change  0.0.1
+	 *
+	 * @param   string $key    Feldname der Option
+	 * @param   mixed  $value  Wert der Option
+	 */
 
-	public static function update_options($key, $value)
-	{
+	public static function update_options( $key, $value ) {
 		update_site_option(
 			'snitch',
 			array_merge(
 				self::get_options(),
 				array(
-					$key => $value
+					$key => $value,
 				)
 			)
 		);
@@ -292,19 +284,18 @@ class Snitch
 
 
 	/**
-	* Fügt hinzu oder entfernt Nutzer-Berechtigungen
-	*
-	* @since   0.0.5
-	* @change  0.0.5
-	*
-	* @param   string  $role    Benutzerkennung
-	* @param   string  $action  Auszuführende Aktion
-	*/
+	 * Fügt hinzu oder entfernt Nutzer-Berechtigungen
+	 *
+	 * @since   0.0.5
+	 * @change  0.0.5
+	 *
+	 * @param   string $role    Benutzerkennung
+	 * @param   string $action  Auszuführende Aktion
+	 */
 
-	private static function _handle_caps($role, $action)
-	{
+	private static function _handle_caps( $role, $action ) {
 		/* Get role */
-		$role = get_role($role);
+		$role = get_role( $role );
 
 		/* Avaliable caps */
 		$caps = array(
@@ -317,15 +308,15 @@ class Snitch
 			'read_snitchs',
 			'read_private_snitchs',
 			'delete_published_snitchs',
-			'delete_private_snitchs'
+			'delete_private_snitchs',
 		);
 
 		/* Loop & set caps */
-		foreach( $caps as $caps ) {
+		foreach ( $caps as $caps ) {
 			call_user_func(
 				array(
 					$role,
-					$action. '_cap'
+					$action . '_cap',
 				),
 				$caps
 			);
@@ -334,30 +325,29 @@ class Snitch
 
 
 	/**
-	* Aktionen bei der Aktivierung des Plugins
-	*
-	* @since   0.0.4
-	* @change  1.0.5
-	*/
+	 * Aktionen bei der Aktivierung des Plugins
+	 *
+	 * @since   0.0.4
+	 * @change  1.0.5
+	 */
 
-	public static function activation()
-	{
+	public static function activation() {
 		/* Add default options */
 		add_site_option(
 			'snitch',
 			array(
 				'hosts' => array(),
-				'files' => array()
+				'files' => array(),
 			),
 			'',
 			'no'
 		);
 
 		/* Add caps */
-		self::_handle_caps('administrator', 'add');
+		self::_handle_caps( 'administrator', 'add' );
 
 		/* Init cronjob */
-		if ( ! wp_next_scheduled('snitch_cleanup') ) {
+		if ( ! wp_next_scheduled( 'snitch_cleanup' ) ) {
 			wp_schedule_event(
 				time(),
 				'daily',
@@ -368,34 +358,32 @@ class Snitch
 
 
 	/**
-	* Aktionen bei der Deaktivierung des Plugins
-	*
-	* @since   1.0.5
-	* @change  1.0.5
-	*/
+	 * Aktionen bei der Deaktivierung des Plugins
+	 *
+	 * @since   1.0.5
+	 * @change  1.0.5
+	 */
 
-	public static function deactivation()
-	{
-		wp_clear_scheduled_hook('snitch_cleanup');
+	public static function deactivation() {
+		 wp_clear_scheduled_hook( 'snitch_cleanup' );
 	}
 
 
 	/**
-	* Aktionen bei der Deinstallation des Plugins
-	*
-	* @since   0.0.4
-	* @change  1.0.3
-	*/
+	 * Aktionen bei der Deinstallation des Plugins
+	 *
+	 * @since   0.0.4
+	 * @change  1.0.3
+	 */
 
-	public static function uninstall()
-	{
+	public static function uninstall() {
 		/* Unregister CPT */
 		Snitch_CPT::delete_items();
 
 		/* Kill options */
-		delete_site_option('snitch');
+		delete_site_option( 'snitch' );
 
 		/* Remove caps */
-		self::_handle_caps('administrator', 'remove');
+		self::_handle_caps( 'administrator', 'remove' );
 	}
 }

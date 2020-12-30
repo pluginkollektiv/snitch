@@ -1,0 +1,4 @@
+.idea/
+css/*.min.css
+vendor/
+node_modules/

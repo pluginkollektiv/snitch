@@ -2,33 +2,32 @@
 
 
 /* Quit */
-defined('ABSPATH') OR exit;
+defined( 'ABSPATH' ) or exit;
 
 
 /**
-* Snitch_Blacklist
-*
-* @since 0.0.1
-*/
+ * Snitch_Blacklist
+ *
+ * @since 0.0.1
+ */
 
-class Snitch_Blacklist
-{
+class Snitch_Blacklist {
+
 
 
 	/**
-	* Blockiert Einträge eines bestimmten Typs
-	*
-	* @since   0.0.1
-	* @change  0.0.1
-	*
-	* @param   array   $item  Array mit Einträgen
-	* @param   string  $type  Typ des Eintrags (hosts|files)
-	*/
+	 * Blockiert Einträge eines bestimmten Typs
+	 *
+	 * @since   0.0.1
+	 * @change  0.0.1
+	 *
+	 * @param   array  $item  Array mit Einträgen
+	 * @param   string $type  Typ des Eintrags (hosts|files)
+	 */
 
-	public static function block($items, $type)
-	{
-		/* Type check */
-		if ( ! in_array($type, array('hosts', 'files') ) ) {
+	public static function block( $items, $type ) {
+		 /* Type check */
+		if ( ! in_array( $type, array( 'hosts', 'files' ) ) ) {
 			return;
 		}
 
@@ -37,7 +36,7 @@ class Snitch_Blacklist
 			$type,
 			array_unique(
 				array_merge(
-					Snitch::get_options($type),
+					Snitch::get_options( $type ),
 					$items
 				)
 			)
@@ -46,38 +45,37 @@ class Snitch_Blacklist
 
 
 	/**
-	* Gibt Einträge eines bestimmten Typs frei
-	*
-	* @since   0.0.1
-	* @change  0.0.1
-	*
-	* @param   array   $item  Array mit Einträgen
-	* @param   string  $type  Typ des Eintrags (hosts|files)
-	*/
+	 * Gibt Einträge eines bestimmten Typs frei
+	 *
+	 * @since   0.0.1
+	 * @change  0.0.1
+	 *
+	 * @param   array  $item  Array mit Einträgen
+	 * @param   string $type  Typ des Eintrags (hosts|files)
+	 */
 
-	public static function unblock($items, $type)
-	{
+	public static function unblock( $items, $type ) {
 		/* Type check */
-		if ( ! in_array($type, array('hosts', 'files') ) ) {
+		if ( ! in_array( $type, array( 'hosts', 'files' ) ) ) {
 			return;
 		}
 
 		/* Get options */
-		$options = Snitch::get_options($type);
+		$options = Snitch::get_options( $type );
 
 		/* Convert */
-		$items = (array)$items;
+		$items = (array) $items;
 
 		/* Loop items */
-		foreach ($items as $item) {
-			$key = array_search($item, $options);
+		foreach ( $items as $item ) {
+			$key = array_search( $item, $options );
 
 			if ( $key !== false ) {
-				unset( $options[$key] );
+				unset( $options[ $key ] );
 			}
 		}
 
 		/* Update options */
-		Snitch::update_options($type, $options);
+		Snitch::update_options( $type, $options );
 	}
 }
