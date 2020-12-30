@@ -221,17 +221,12 @@ class Snitch {
 	 * @change  1.0.1
 	 */
 	public static function add_css() {
-		/* Register styles */
-		wp_register_style(
+		wp_enqueue_style(
 			'snitch-global',
-			plugins_url(
-				'css/global.min.css',
-				SNITCH_FILE
-			)
+			plugins_url( 'css/global.min.css', SNITCH_FILE ),
+			array(),
+			self::get_version()
 		);
-
-		/* Add styles */
-		wp_enqueue_style( 'snitch-global' );
 	}
 
 	/**
@@ -366,5 +361,17 @@ class Snitch {
 
 		/* Remove caps */
 		self::_handle_caps( 'administrator', 'remove' );
+	}
+
+	/**
+	 * Returns the Snitch version number.
+	 *
+	 * @return string the Snitch version
+	 *
+	 * @since 1.2.0
+	 */
+	public static function get_version() {
+		$data = get_plugin_data( SNITCH_FILE );
+		return $data['Version'];
 	}
 }

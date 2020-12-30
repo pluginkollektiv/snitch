@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 0.0.1
  */
-class Snitch_Blacklist {
+class Snitch_Blocklist {
 	/**
 	 * Blockiert Einträge eines bestimmten Typs
 	 *

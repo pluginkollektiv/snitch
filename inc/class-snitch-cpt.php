@@ -213,16 +213,12 @@ class Snitch_CPT {
 		add_thickbox();
 
 		/* Register styles */
-		wp_register_style(
+		wp_enqueue_style(
 			'snitch-cpt',
-			plugins_url(
-				'css/cpt.min.css',
-				SNITCH_FILE
-			)
+			plugins_url( 'css/cpt.min.css', SNITCH_FILE ),
+			array(),
+			Snitch::get_version()
 		);
-
-		/* Add styles */
-		wp_enqueue_style( 'snitch-cpt' );
 	}
 
 	/**
@@ -856,7 +852,7 @@ class Snitch_CPT {
 		/* Handle types */
 		call_user_func(
 			array(
-				'Snitch_Blacklist',
+				'Snitch_Blocklist',
 				$action,
 			),
 			array_unique( $items ),

@@ -86,12 +86,12 @@ spl_autoload_register( 'snitch_autoload' );
  * @param string $class the class name.
  */
 function snitch_autoload( $class ) {
-	if ( in_array( $class, array( 'Snitch', 'Snitch_HTTP', 'Snitch_CPT', 'Snitch_Blacklist' ) ) ) {
+	if ( in_array( $class, array( 'Snitch', 'Snitch_HTTP', 'Snitch_CPT', 'Snitch_Blocklist' ) ) ) {
 		require_once(
 			sprintf(
-				'%s/inc/%s.class.php',
+				'%s/inc/class-%s.php',
 				SNITCH_DIR,
-				strtolower( $class )
+				strtolower( str_replace( '_', '-', $class ) )
 			)
 		);
 	}
