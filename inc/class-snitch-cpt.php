@@ -255,8 +255,8 @@ class Snitch_CPT {
 		echo sprintf(
 			'<select name="snitch_state_filter">%s%s%s</select>',
 			'<option value="">' . esc_html__( 'All states', 'snitch' ) . '</option>',
-			'<option value="' . SNITCH_AUTHORIZED . '" ' . selected( $filter, SNITCH_AUTHORIZED, false ) . '>' . esc_html__( 'Authorized', 'snitch' ) . '</option>',
-			'<option value="' . SNITCH_BLOCKED . '" ' . selected( $filter, SNITCH_BLOCKED, false ) . '>' . esc_html__( 'Blocked', 'snitch' ) . '</option>'
+			'<option value="' . esc_attr( SNITCH_AUTHORIZED ) . '" ' . selected( $filter, SNITCH_AUTHORIZED, false ) . '>' . esc_html__( 'Authorized', 'snitch' ) . '</option>',
+			'<option value="' . esc_attr( SNITCH_BLOCKED ) . '" ' . selected( $filter, SNITCH_BLOCKED, false ) . '>' . esc_html__( 'Blocked', 'snitch' ) . '</option>'
 		);
 
 		/* Empty protocol button */
@@ -486,16 +486,27 @@ class Snitch_CPT {
 		/* Print output */
 		echo sprintf(
 			'<div><p class="label blacklisted-%d"></p>%s<div class="row-actions">%s</div></div>',
-			$blacklisted,
-			str_replace(
-				$host,
-				'<code>' . $host . '</code>',
-				esc_url( $url )
+			esc_attr( $blacklisted ),
+			wp_kses(
+				str_replace(
+					$host,
+					'<code>' . $host . '</code>',
+					esc_url( $url )
+				),
+				array( 'code' => array() )
 			),
-			self::_action_link(
-				$post_id,
-				'host',
-				$blacklisted
+			wp_kses(
+				self::_action_link(
+					$post_id,
+					'host',
+					$blacklisted
+				),
+				array(
+					'a' => array(
+						'class' => array(),
+						'href' => array(),
+					),
+				)
 			)
 		);
 	}
@@ -531,16 +542,24 @@ class Snitch_CPT {
 
 		/* Print output */
 		echo sprintf(
-			'<div><p class="label blacklisted_%d"></p>%s: %s<br /><code>/%s:%d</code><div class="row-actions">%s</div></div>',
-			$blacklisted,
-			$meta['type'],
-			$meta['name'],
-			$file,
-			$line,
-			self::_action_link(
-				$post_id,
-				'file',
-				$blacklisted
+			'<div><p class="label blacklisted-%d"></p>%s: %s<br /><code>/%s:%d</code><div class="row-actions">%s</div></div>',
+			esc_attr( $blacklisted ),
+			esc_html( $meta['type'] ),
+			esc_html( $meta['name'] ),
+			esc_html( $file ),
+			esc_html( $line ),
+			wp_kses(
+				self::_action_link(
+					$post_id,
+					'file',
+					esc_attr( $blacklisted )
+				),
+				array(
+					'a' => array(
+						'class' => array(),
+						'href' => array(),
+					),
+				)
 			)
 		);
 	}
@@ -566,7 +585,7 @@ class Snitch_CPT {
 		/* Print the state */
 		echo sprintf(
 			'<span class="%s">%s</span>',
-			strtolower( $states[ $state ] ),
+			esc_attr( strtolower( $states[ $state ] ) ),
 			esc_html( $states[ $state ] )
 		);
 
@@ -574,7 +593,7 @@ class Snitch_CPT {
 		if ( SNITCH_BLOCKED === $state ) {
 			echo sprintf(
 				'<style>#post-%1$d {background:rgba(248, 234, 232, 0.8)}#post-%1$d.alternate {background:#f8eae8}</style>',
-				$post_id
+				esc_attr( $post_id )
 			);
 		}
 	}
@@ -592,8 +611,11 @@ class Snitch_CPT {
 		$parsed_url = wp_parse_url( $url );
 
 		/* Print the state */
-		echo "<img src='" . SNITCH_URL . 'assets/' . $parsed_url['scheme'] . '.png' . "'>";
-
+		$img_src = SNITCH_URL . 'assets/' . $parsed_url['scheme'] . '.png';
+		echo wp_kses(
+			'<img src="' . esc_url( $img_src ) . '">',
+			array( 'img' => array( 'src' => array() ) )
+		);
 	}
 
 	/**
@@ -605,7 +627,7 @@ class Snitch_CPT {
 	 * @param   integer $post_id  Post-ID.
 	 */
 	private static function _html_code( $post_id ) {
-		echo self::_get_meta( $post_id, 'code' );
+		echo esc_html( self::_get_meta( $post_id, 'code' ) );
 	}
 
 	/**
@@ -616,11 +638,12 @@ class Snitch_CPT {
 	 * @param   integer $post_id  Post-ID.
 	 */
 	private static function _html_duration( $post_id ) {
-		if ( $duration = self::_get_meta( $post_id, 'duration' ) ) {
+		$duration = self::_get_meta( $post_id, 'duration' );
+		if ( $duration ) {
 			echo sprintf(
 				/* translators: duration in seconds */
-				__( '%s seconds', 'snitch' ),
-				$duration
+				esc_html__( '%s seconds', 'snitch' ),
+				esc_html( $duration )
 			);
 		}
 	}
@@ -636,8 +659,8 @@ class Snitch_CPT {
 	private static function _html_created( $post_id ) {
 		echo sprintf(
 			/* translators: duration (e. g. "15 mins") since the post was created */
-			__( '%s ago', 'snitch' ),
-			human_time_diff( get_post_time( 'G', true, $post_id ) )
+			esc_html__( '%s ago', 'snitch' ),
+			esc_html( human_time_diff( get_post_time( 'G', true, $post_id ) ) )
 		);
 	}
 
@@ -671,7 +694,7 @@ class Snitch_CPT {
 		/* Thickbox content start */
 		echo sprintf(
 			'<div id="snitch-thickbox-%d" class="snitch-hidden"><pre>',
-			$post_id
+			esc_attr( $post_id )
 		);
 
 		/* POST data */
@@ -681,10 +704,18 @@ class Snitch_CPT {
 		echo '</pre></div>';
 
 		/* Thickbox button */
-		echo sprintf(
-			'<a href="#TB_inline?width=400&height=300&inlineId=snitch-thickbox-%d" class="button thickbox">%s</a>',
-			$post_id,
-			esc_html__( 'Show', 'snitch' )
+		echo wp_kses(
+			sprintf(
+				'<a href="#TB_inline?width=400&height=300&inlineId=snitch-thickbox-%d" class="button thickbox">%s</a>',
+				$post_id,
+				esc_html__( 'Show', 'snitch' )
+			),
+			array(
+				'a' => array(
+					'class' => array(),
+					'href' => array(),
+				),
+			)
 		);
 	}
 
@@ -816,8 +847,8 @@ class Snitch_CPT {
 		}
 
 		/* Set vars */
-		$action = $_GET['action'];
-		$type = $_GET['type'];
+		$action = sanitize_text_field( wp_unslash( $_GET['action'] ) );
+		$type = sanitize_text_field( wp_unslash( $_GET['type'] ) );
 
 		/* Validate action and type */
 		if ( ! in_array( $action, array( 'block', 'unblock' ) ) || ! in_array( $type, array( 'host', 'file' ) ) ) {
@@ -920,7 +951,8 @@ class Snitch_CPT {
 	 * @return  mixed    void      Wert des Fields
 	 */
 	private static function _get_meta( $post_id, $key ) {
-		if ( $value = get_post_meta( $post_id, '_snitch_' . $key, true ) ) {
+		$value = get_post_meta( $post_id, '_snitch_' . $key, true );
+		if ( $value ) {
 			return $value;
 		}
 

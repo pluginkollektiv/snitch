@@ -36,7 +36,8 @@ class Snitch_HTTP {
 		}
 
 		/* Invalid host */
-		if ( ! $host = parse_url( $url, PHP_URL_HOST ) ) {
+		$host = parse_url( $url, PHP_URL_HOST );
+		if ( ! $host ) {
 			return $pre;
 		}
 
@@ -113,6 +114,8 @@ class Snitch_HTTP {
 	 * @param  string $class     Klasse der API.
 	 * @param  array  $args      Argumente der API.
 	 * @param  string $url       URL der API.
+	 *
+	 * @return bool false if the request was not saved.
 	 */
 	public static function log_response( $response, $type, $class, $args, $url ) {
 		/* Only response type */
@@ -126,7 +129,8 @@ class Snitch_HTTP {
 		}
 
 		/* Validate host */
-		if ( ! $host = parse_url( $url, PHP_URL_HOST ) ) {
+		$host = parse_url( $url, PHP_URL_HOST );
+		if ( ! $host ) {
 			return false;
 		}
 
@@ -222,14 +226,17 @@ class Snitch_HTTP {
 		}
 
 		/* Search for plugin */
-		if ( $data = self::_localize_plugin( $path ) ) {
+		$data = self::_localize_plugin( $path );
+		if ( $data ) {
 			return array(
 				'type' => 'Plugin',
 				'name' => $data['Name'],
 			);
+		}
 
-			/* Search for theme */
-		} else if ( $data = self::_localize_theme( $path ) ) {
+		/* Search for theme */
+		$data = self::_localize_theme( $path );
+		if ( $data ) {
 			return array(
 				'type' => 'Theme',
 				'name' => $data->get( 'Name' ),
@@ -246,7 +253,7 @@ class Snitch_HTTP {
 	 * @change  1.0.11
 	 *
 	 * @param   string $path  Pfad einer Datei aus dem Plugin-Ordner.
-	 * @return  array   void   Array mit Plugin-Daten.
+	 * @return  array|bool    Array mit Plugin-Daten.
 	 */
 	private static function _localize_plugin( $path ) {
 		 /* Check path */
@@ -290,7 +297,7 @@ class Snitch_HTTP {
 	 * @change  0.0.5
 	 *
 	 * @param   string $path  Pfad einer Datei aus dem Theme-Ordner.
-	 * @return  object  void   Objekt mit Theme-Daten.
+	 * @return  object|bool   Objekt mit Theme-Daten.
 	 */
 	private static function _localize_theme( $path ) {
 		/* Check path */

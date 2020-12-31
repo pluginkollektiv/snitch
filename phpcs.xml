@@ -18,18 +18,9 @@
     <file>snitch.php</file>
     <exclude-pattern>vendor/*</exclude-pattern>
 
-    <!-- Exclude minified Javascript files. -->
-    <exclude-pattern>*.min.js</exclude-pattern>
-
     <!-- WordPress coding standards -->
     <config name="minimum_supported_wp_version" value="3.8" />
-    <rule ref="WordPress">
-        <exclude name="Squiz.PHP.DisallowMultipleAssignments.FoundInControlStructure"/>
-
-        <exclude name="WordPress.Security.EscapeOutput.OutputNotEscaped"/>
-        <exclude name="WordPress.Security.ValidatedSanitizedInput.InputNotSanitized"/>
-        <exclude name="WordPress.Security.ValidatedSanitizedInput.MissingUnslash"/>
-    </rule>
+    <rule ref="WordPress" />
     <rule ref="WordPress.WP.I18n">
         <properties>
             <property name="text_domain" type="array" value="snitch" />

@@ -210,7 +210,10 @@ class Snitch {
 		/* Print */
 		echo sprintf(
 			'<div class="error"><p>%s</p></div>',
-			__( 'Outgoing connections are blocked in <code>wp-config.php</code>. Check the constant WP_HTTP_BLOCK_EXTERNAL.', 'snitch' )
+			wp_kses(
+				__( 'Outgoing connections are blocked in <code>wp-config.php</code>. Check the constant <code>WP_HTTP_BLOCK_EXTERNAL</code>.', 'snitch' ),
+				array( 'code' => array() )
+			)
 		);
 	}
 
