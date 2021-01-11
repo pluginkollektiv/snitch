@@ -1,5 +1,8 @@
 # Snitch changelog
 
+## 1.2.0 (unreleased)
+* Remove `lang` folder in favor of translations via translate.wordpress.org (#40)
+* Add code style check and build script (#39)
 
 ## 1.1.9
 * **English**
