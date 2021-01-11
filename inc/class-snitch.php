@@ -129,11 +129,7 @@ class Snitch {
 		);
 
 		/* Load lang */
-		load_plugin_textdomain(
-			'snitch',
-			false,
-			dirname( SNITCH_BASE ) . '/lang'
-		);
+		load_plugin_textdomain( 'snitch' );
 	}
 
 	/**
