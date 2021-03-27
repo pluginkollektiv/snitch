@@ -11,10 +11,11 @@
 * **Deutsch**
    * Anzeige des Schema, ob der Aufruf per http oder https erfolgte
    * Kein "ruckeln" in der Abrufliste bei Maus-Over
+
 ## 1.1.8
 * **English**
    * Support for WordPress 5.2
-   * Bugix: Deprected Non-static call 
+   * Bugfix: Deprected Non-static call 
 * **Deutsch**
    * Unterstützung für WordPress 5.2
    * Fehlerbehebung: Deprected Non-static call 

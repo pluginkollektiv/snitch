@@ -7,7 +7,7 @@
 * Requires PHP:      5.2.4
 * Stable tag:        1.1.9
 * License:           GPLv3 or later
-* License URI:       https://www.gnu.org/licenses/gpl-3.0.html
+* License URI:       https://www.gnu.org/licenses/gpl-3.0
 
 Network monitor for WordPress. Connection overview for monitoring and controlling outgoing data traffic.
 
@@ -89,18 +89,18 @@ And so it quickly happens that Google suddenly hits *Snitch* entries (as blog pa
 ### Automatic Shares go crazily ###
 The fact that every new _Snitch_ entry automatically sends a message to Facebook and/or Twitter, is clearly not due to *Snitch*. Rather, the cause is to be found in the inserted Auto-Tweet-Facebook-Plugin, which faulty triggers an automatic event at every - also non-public - [WordPress Custom Post Type](https://codex.wordpress.org/Post_Types). And that's wrong. The usage of such Plugins should be reconsidered.
 
-A complete documentation is available on [Snitchs website](https://snitch.pluginkollektiv.org/documentation/).
+A complete documentation is available on the [Snitch website](https://snitch.pluginkollektiv.org/documentation/).
 
 
 ## Changelog ##
 
 ### 1.1.9 ###
 * Shows schema of request (http/https)
-*
+* No "jerking" in the retrieval list during mouse over
 
 ### 1.1.8 ###
 * Support for WordPress 5.2
-* Bugix: Deprected Non-static call 
+* Bugfix: Deprected Non-static call
 
 ### 1.1.7 ###
 * Updated README

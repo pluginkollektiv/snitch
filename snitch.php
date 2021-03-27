@@ -3,13 +3,12 @@
  * Plugin Name: Snitch
  * Description: Network monitor for WordPress. Connection overview for monitoring and controlling outgoing data traffic.
  * Author:      pluginkollektiv
- * Author URI:  https://pluginkollektiv.org
- * Plugin URI:  https://snitch.pluginkollektiv.org
+ * Author URI:  https://pluginkollektiv.org/
+ * Plugin URI:  https://snitch.pluginkollektiv.org/
  * License:     GPLv3 or later
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * License URI: https://www.gnu.org/licenses/gpl-3.0
  * Version:     1.1.9
  * Text Domain: snitch
- * Domain Path: /lang
  *
  * @package Snitch
  */
