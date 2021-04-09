@@ -139,6 +139,4 @@ For the complete changelog, check out our [GitHub repository](https://github.com
 This is mainly a maintenance release which updates the readme and the plugin authors.
 
 ## Screenshots ##
-1. Snitch connection list with target URL and actions
-
-2. Snitch connection list with further information
+1. Snitch connection list
