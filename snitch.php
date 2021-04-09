@@ -1,18 +1,17 @@
 <?php
-/*
-Plugin Name: Snitch
-Description: Network monitor for WordPress. Connection overview for monitoring and controlling outgoing data traffic.
-Author:      pluginkollektiv
-Author URI:  https://pluginkollektiv.org
-Plugin URI:  https://snitch.pluginkollektiv.org/
-License:     GPLv3 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Version:     1.1.9
-Text Domain: snitch
-Domain Path: /lang
-GitHub Plugin URI: https://github.com/pluginkollektiv/snitch
-GitHub Branch: master
-*/
+/**
+ * Plugin Name: Snitch
+ * Description: Network monitor for WordPress. Connection overview for monitoring and controlling outgoing data traffic.
+ * Author:      pluginkollektiv
+ * Author URI:  https://pluginkollektiv.org/
+ * Plugin URI:  https://snitch.pluginkollektiv.org/
+ * License:     GPLv3 or later
+ * License URI: https://www.gnu.org/licenses/gpl-3.0
+ * Version:     1.1.9
+ * Text Domain: snitch
+ *
+ * @package Snitch
+ */
 
 /*
 Copyright (C)  2013-2015 Sergej Müller
@@ -33,64 +32,65 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-
 /* Quit */
-defined('ABSPATH') OR exit;
+defined( 'ABSPATH' ) || exit;
 
+/* Constants */
+define( 'SNITCH_FILE', __FILE__ );
+define( 'SNITCH_DIR', dirname( __FILE__ ) );
+define( 'SNITCH_BASE', plugin_basename( __FILE__ ) );
+define( 'SNITCH_BLOCKED', 1 );
+define( 'SNITCH_AUTHORIZED', -1 );
+define( 'SNITCH_URL', plugin_dir_url( __FILE__ ) );
 
-/* Konstanten */
-define('SNITCH_FILE', __FILE__);
-define('SNITCH_DIR', dirname(__FILE__));
-define('SNITCH_BASE', plugin_basename(__FILE__));
-define('SNITCH_BLOCKED', 1);
-define('SNITCH_AUTHORIZED', -1);
-define('SNITCH_URL', plugin_dir_url( __FILE__ ) );
-
-/* Hooks */
+/* Actions */
 add_action(
 	'plugins_loaded',
 	array(
 		'Snitch',
-		'instance'
+		'instance',
 	)
 );
-
 
 /* Hooks */
 register_activation_hook(
 	__FILE__,
 	array(
 		'Snitch',
-		'activation'
+		'activation',
 	)
 );
 register_deactivation_hook(
 	__FILE__,
 	array(
 		'Snitch',
-		'deactivation'
+		'deactivation',
 	)
 );
 register_uninstall_hook(
 	__FILE__,
 	array(
 		'Snitch',
-		'uninstall'
+		'uninstall',
 	)
 );
 
 
 /* Autoload Init */
-spl_autoload_register('snitch_autoload');
+spl_autoload_register( 'snitch_autoload' );
 
-/* Autoload Funktion */
-function snitch_autoload($class) {
-	if ( in_array($class, array('Snitch', 'Snitch_HTTP', 'Snitch_CPT', 'Snitch_Blacklist')) ) {
+/**
+ * Autoload the class.
+ *
+ * @param string $class the class name.
+ */
+function snitch_autoload( $class ) {
+	if ( in_array( $class, array( 'Snitch', 'Snitch_HTTP', 'Snitch_CPT', 'Snitch_Blocklist' ) ) ) {
 		require_once(
 			sprintf(
-				'%s/inc/%s.class.php',
+				'%s/inc/class-%s.php',
 				SNITCH_DIR,
-				strtolower($class)
+				strtolower( str_replace( '_', '-', $class ) )
 			)
 		);
 	}
