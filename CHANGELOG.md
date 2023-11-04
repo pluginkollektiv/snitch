@@ -1,24 +1,24 @@
 # Snitch changelog
 
-## 1.2.0 (unreleased)
-* Remove `lang` folder in favor of translations via translate.wordpress.org (#40)
-* Add code style check and build script (#39)
-
-## 1.1.9
+## 1.2.0
 * **English**
-   * Shows schema of request (http/https)
-   * No "jerking" in the retrieval list during mouse over
+  * Shows schema of request (http/https)
+  * No "jerking" in the retrieval list during mouse over
+  * Remove `lang` folder in favor of translations via translate.wordpress.org (#40)
+  * Support for WordPress 6.4
 * **Deutsch**
-   * Anzeige des Schema, ob der Aufruf per http oder https erfolgte
-   * Kein "ruckeln" in der Abrufliste bei Maus-Over
+  * Anzeige des Schemas, ob der Aufruf per http oder https erfolgte
+  * Kein "ruckeln" in der Abrufliste bei Mouseover
+  * `lang` Ordner zugunsten der Übersetzung durch translate.wordpress.org entfernt (#40)
+  * Unterstützung für WordPress 6.4
 
 ## 1.1.8
 * **English**
    * Support for WordPress 5.2
-   * Bugfix: Deprected Non-static call 
+   * Bugfix: Deprecated Non-static call 
 * **Deutsch**
    * Unterstützung für WordPress 5.2
-   * Fehlerbehebung: Deprected Non-static call 
+   * Fehlerbehebung: Deprecated Non-static call 
 
 ## 1.1.7
 * **English**
