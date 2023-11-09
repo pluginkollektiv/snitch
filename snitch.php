@@ -7,7 +7,7 @@
  * Plugin URI:  https://snitch.pluginkollektiv.org/
  * License:     GPLv3 or later
  * License URI: https://www.gnu.org/licenses/gpl-3.0
- * Version:     1.1.9
+ * Version:     1.2.0
  * Text Domain: snitch
  *
  * @package Snitch
