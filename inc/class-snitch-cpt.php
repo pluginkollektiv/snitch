@@ -30,7 +30,7 @@ class Snitch_CPT {
 	 * @change  0.0.1
 	 */
 	public static function instance() {
-		 new self();
+		new self();
 	}
 
 	/**
@@ -40,30 +40,30 @@ class Snitch_CPT {
 	 * @change  1.1.3
 	 */
 	public function __construct() {
-		 /* Set plugin options */
+		/* Set plugin options */
 		self::$options = Snitch::get_options();
 
 		/* Post Type */
 		register_post_type(
 			'snitch',
 			array(
-				'label' => 'Snitch',
-				'labels' => array(
-					'not_found' => esc_html__( 'No items found. Future connections will be shown at this place.', 'snitch' ),
+				'label'               => 'Snitch',
+				'labels'              => array(
+					'not_found'          => esc_html__( 'No items found. Future connections will be shown at this place.', 'snitch' ),
 					'not_found_in_trash' => esc_html__( 'No items found in trash.', 'snitch' ),
-					'search_items' => esc_html__( 'Search in destination', 'snitch' ),
+					'search_items'       => esc_html__( 'Search in destination', 'snitch' ),
 				),
-				'public' => false,
-				'show_ui' => true,
-				'query_var' => true,
-				'hierarchical' => false,
-				'capabilities' => array(
+				'public'              => false,
+				'show_ui'             => true,
+				'query_var'           => true,
+				'hierarchical'        => false,
+				'capabilities'        => array(
 					'create_posts' => false,
 					'delete_posts' => false,
 				),
-				'menu_position' => 50,
-				'capability_type' => 'snitch',
-				'publicly_queryable' => false,
+				'menu_position'       => 50,
+				'capability_type'     => 'snitch',
+				'publicly_queryable'  => false,
 				'exclude_from_search' => true,
 			)
 		);
@@ -280,7 +280,7 @@ class Snitch_CPT {
 	 */
 	public static function expand_query_vars( $query ) {
 		if ( ! empty( $_GET['snitch_state_filter'] ) ) {
-			$query->query_vars['meta_key'] = '_snitch_state';
+			$query->query_vars['meta_key']   = '_snitch_state';
 			$query->query_vars['meta_value'] = (int) $_GET['snitch_state_filter'];
 		}
 	}
@@ -437,7 +437,7 @@ class Snitch_CPT {
 	 * @param   integer $post_id  Post-ID.
 	 */
 	public static function custom_column( $column, $post_id ) {
-		 /* Column types */
+		/* Column types */
 		$types = (array) apply_filters(
 			'snitch_custom_column',
 			array(
@@ -476,8 +476,8 @@ class Snitch_CPT {
 	 * @param   integer $post_id  Post-ID.
 	 */
 	private static function _html_url( $post_id ) {
-		 /* Init data */
-		$url = self::_get_meta( $post_id, 'url' );
+		/* Init data */
+		$url  = self::_get_meta( $post_id, 'url' );
 		$host = self::_get_meta( $post_id, 'host' );
 
 		/* Already blacklisted? */
@@ -504,7 +504,7 @@ class Snitch_CPT {
 				array(
 					'a' => array(
 						'class' => array(),
-						'href' => array(),
+						'href'  => array(),
 					),
 				)
 			)
@@ -557,7 +557,7 @@ class Snitch_CPT {
 				array(
 					'a' => array(
 						'class' => array(),
-						'href' => array(),
+						'href'  => array(),
 					),
 				)
 			)
@@ -607,7 +607,7 @@ class Snitch_CPT {
 	 */
 	private static function _html_https( $post_id ) {
 		/* Item state */
-		$url = self::_get_meta( $post_id, 'url' );
+		$url        = self::_get_meta( $post_id, 'url' );
 		$parsed_url = wp_parse_url( $url );
 
 		/* Print the state */
@@ -720,7 +720,7 @@ class Snitch_CPT {
 			array(
 				'a' => array(
 					'class' => array(),
-					'href' => array(),
+					'href'  => array(),
 				),
 			)
 		);
@@ -740,12 +740,12 @@ class Snitch_CPT {
 	private static function _action_link( $post_id, $type, $blacklisted = false ) {
 		if ( $blacklisted ) {
 			$action = 'unblock';
-			$text = 'host' === $type
+			$text   = 'host' === $type
 				? __( 'Unblock this host', 'snitch' )
 				: __( 'Unblock this file', 'snitch' );
 		} else {
 			$action = 'block';
-			$text = 'host' === $type
+			$text   = 'host' === $type
 				? __( 'Block this host', 'snitch' )
 				: __( 'Block this file', 'snitch' );
 		}
@@ -855,7 +855,7 @@ class Snitch_CPT {
 
 		/* Set vars */
 		$action = sanitize_text_field( wp_unslash( $_GET['action'] ) );
-		$type = sanitize_text_field( wp_unslash( $_GET['type'] ) );
+		$type   = sanitize_text_field( wp_unslash( $_GET['type'] ) );
 
 		/* Validate action and type */
 		if ( ! in_array( $action, array( 'block', 'unblock' ) ) || ! in_array( $type, array( 'host', 'file' ) ) ) {
@@ -977,8 +977,8 @@ class Snitch_CPT {
 	 */
 	public static function views_edit( $views ) {
 		$links = array(
-			'paypal' => '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TD4AMD2D8EMZW" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Donate', 'snitch' ) . '</a>',
-			'wiki' => '<a href="https://github.com/pluginkollektiv/snitch/wiki" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Manual', 'snitch' ) . '</a>',
+			'paypal'  => '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TD4AMD2D8EMZW" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Donate', 'snitch' ) . '</a>',
+			'wiki'    => '<a href="https://github.com/pluginkollektiv/snitch/wiki" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Manual', 'snitch' ) . '</a>',
 			'support' => '<a href="https://wordpress.org/support/plugin/snitch" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Support', 'snitch' ) . '</a>',
 		);
 

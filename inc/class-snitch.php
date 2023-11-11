@@ -21,7 +21,7 @@ class Snitch {
 	 * @change  0.0.1
 	 */
 	public static function instance() {
-		 new self();
+		new self();
 	}
 
 	/**
@@ -31,7 +31,7 @@ class Snitch {
 	 * @change  1.0.5
 	 */
 	public function __construct() {
-		 /* Register CPT */
+		/* Register CPT */
 		add_action(
 			'init',
 			array(
@@ -79,9 +79,9 @@ class Snitch {
 
 		/* Skip secondary hooks */
 		if ( ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
-			 || ( defined( 'DOING_CRON' ) && DOING_CRON )
-			 || ( defined( 'DOING_AJAX' ) && DOING_AJAX )
-			 || ( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) ) {
+			|| ( defined( 'DOING_CRON' ) && DOING_CRON )
+			|| ( defined( 'DOING_AJAX' ) && DOING_AJAX )
+			|| ( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) ) {
 			return;
 		}
 
@@ -143,7 +143,7 @@ class Snitch {
 	 * @return  array          Array mit erweiterten Links
 	 */
 	public static function meta_links( $data, $file ) {
-		 /* Skip the rest */
+		/* Skip the rest */
 		if ( SNITCH_BASE !== $file ) {
 			return $data;
 		}
@@ -199,7 +199,7 @@ class Snitch {
 	public static function updated_notice() {
 		/* Skip requests */
 		if ( 'plugins.php' !== $GLOBALS['pagenow']
-			 || ! ( defined( 'WP_HTTP_BLOCK_EXTERNAL' ) && WP_HTTP_BLOCK_EXTERNAL ) ) {
+			|| ! ( defined( 'WP_HTTP_BLOCK_EXTERNAL' ) && WP_HTTP_BLOCK_EXTERNAL ) ) {
 			return;
 		}
 
@@ -342,7 +342,7 @@ class Snitch {
 	 * @change  1.0.5
 	 */
 	public static function deactivation() {
-		 wp_clear_scheduled_hook( 'snitch_cleanup' );
+		wp_clear_scheduled_hook( 'snitch_cleanup' );
 	}
 
 	/**

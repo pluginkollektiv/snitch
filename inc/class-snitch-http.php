@@ -193,7 +193,7 @@ class Snitch_HTTP {
 			if ( ! empty( $item['function'] ) && strpos( $item['function'], 'wp_remote_' ) !== false ) {
 				/* Use prev item */
 				if ( empty( $item['file'] ) ) {
-					$item = $trace[ -- $index ];
+					$item = $trace[ --$index ];
 				}
 
 				/* Get file and line */
@@ -214,7 +214,7 @@ class Snitch_HTTP {
 	 * @return  array   $meta  Array mit Informationen.
 	 */
 	private static function _face_detect( $path ) {
-		 /* Default */
+		/* Default */
 		$meta = array(
 			'type' => 'WordPress',
 			'name' => 'Core',
@@ -256,7 +256,7 @@ class Snitch_HTTP {
 	 * @return  array|bool    Array mit Plugin-Daten.
 	 */
 	private static function _localize_plugin( $path ) {
-		 /* Check path */
+		/* Check path */
 		if ( strpos( $path, WP_PLUGIN_DIR ) === false ) {
 			return false;
 		}
