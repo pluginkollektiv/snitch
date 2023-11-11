@@ -276,7 +276,7 @@ class Snitch_HTTP {
 
 		/* Frontend */
 		if ( ! function_exists( 'get_plugins' ) ) {
-			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		}
 
 		/* All active plugins */
