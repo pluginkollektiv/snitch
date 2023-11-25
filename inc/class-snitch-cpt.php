@@ -640,10 +640,17 @@ class Snitch_CPT {
 	private static function _html_duration( $post_id ) {
 		$duration = self::_get_meta( $post_id, 'duration' );
 		if ( $duration ) {
-			echo sprintf(
-				/* translators: duration in seconds */
-				esc_html__( '%s seconds', 'snitch' ),
-				esc_html( $duration )
+			echo esc_html(
+				sprintf(
+					/* translators: duration in seconds */
+					_n(
+						'%s second',
+						'%s seconds',
+						$duration,
+						'snitch'
+					),
+					$duration
+				)
 			);
 		}
 	}
