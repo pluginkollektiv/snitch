@@ -91,6 +91,9 @@ The fact that every new _Snitch_ entry automatically sends a message to Facebook
 
 A complete documentation is available on the [Snitch website](https://snitch.pluginkollektiv.org/documentation/).
 
+### Where do I report security bugs found in this plugin? ###
+Please report security bugs found in the source code of the Snitch plugin through the [Patchstack Vulnerability Disclosure Program](https://patchstack.com/database/vdp/a690b1e7-428e-4bc5-a01d-2353ebf45f7b). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
+
 
 ## Changelog ##
 
