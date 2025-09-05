@@ -20,7 +20,10 @@
 
     <!-- WordPress coding standards -->
     <config name="minimum_supported_wp_version" value="3.8" />
-    <rule ref="WordPress" />
+    <rule ref="WordPress">
+        <exclude name="Modernize.FunctionCalls.Dirname.FileConstant"/>
+        <exclude name="PSR2.Methods.MethodDeclaration.Underscore"/>
+    </rule>
     <rule ref="WordPress.WP.I18n">
         <properties>
             <property name="text_domain" type="array" value="snitch" />

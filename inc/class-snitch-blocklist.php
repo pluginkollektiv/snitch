@@ -24,7 +24,7 @@ class Snitch_Blocklist {
 	 * @param   string $type  Typ des Eintrags (hosts|files).
 	 */
 	public static function block( $items, $type ) {
-		 /* Type check */
+		/* Type check */
 		if ( ! in_array( $type, array( 'hosts', 'files' ) ) ) {
 			return;
 		}
