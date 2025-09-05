@@ -542,7 +542,7 @@ class Snitch_CPT {
 
 		/* Print output */
 		printf(
-			'<div><p class="label blacklisted-%d"></p>%s: %s<br /><code>/%s:%d</code><div class="row-actions">%s</div></div>',
+			'<div><p class="label blacklisted-%d"></p>%s: %s<br /><code>%s:%d</code><div class="row-actions">%s</div></div>',
 			esc_attr( $blacklisted ),
 			esc_html( $meta['type'] ),
 			esc_html( $meta['name'] ),
@@ -801,7 +801,7 @@ class Snitch_CPT {
 			add_post_meta(
 				$post_id,
 				'_snitch_' . $key,
-				$value,
+				wp_slash( $value ),
 				true
 			);
 		}
