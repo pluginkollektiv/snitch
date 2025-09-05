@@ -36,7 +36,7 @@ class Snitch_HTTP {
 		}
 
 		/* Invalid host */
-		$host = parse_url( $url, PHP_URL_HOST );
+		$host = wp_parse_url( $url, PHP_URL_HOST );
 		if ( ! $host ) {
 			return $pre;
 		}
@@ -129,7 +129,7 @@ class Snitch_HTTP {
 		}
 
 		/* Validate host */
-		$host = parse_url( $url, PHP_URL_HOST );
+		$host = wp_parse_url( $url, PHP_URL_HOST );
 		if ( ! $host ) {
 			return false;
 		}
@@ -193,7 +193,7 @@ class Snitch_HTTP {
 			if ( ! empty( $item['function'] ) && strpos( $item['function'], 'wp_remote_' ) !== false ) {
 				/* Use prev item */
 				if ( empty( $item['file'] ) ) {
-					$item = $trace[ -- $index ];
+					$item = $trace[ --$index ];
 				}
 
 				/* Get file and line */
@@ -214,7 +214,7 @@ class Snitch_HTTP {
 	 * @return  array   $meta  Array mit Informationen.
 	 */
 	private static function _face_detect( $path ) {
-		 /* Default */
+		/* Default */
 		$meta = array(
 			'type' => 'WordPress',
 			'name' => 'Core',
@@ -256,7 +256,7 @@ class Snitch_HTTP {
 	 * @return  array|bool    Array mit Plugin-Daten.
 	 */
 	private static function _localize_plugin( $path ) {
-		 /* Check path */
+		/* Check path */
 		if ( strpos( $path, WP_PLUGIN_DIR ) === false ) {
 			return false;
 		}
@@ -276,7 +276,7 @@ class Snitch_HTTP {
 
 		/* Frontend */
 		if ( ! function_exists( 'get_plugins' ) ) {
-			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		}
 
 		/* All active plugins */
@@ -363,7 +363,7 @@ class Snitch_HTTP {
 	 */
 	private static function _is_internal( $host ) {
 		/* Get the blog host */
-		$blog_host = parse_url(
+		$blog_host = wp_parse_url(
 			get_bloginfo( 'url' ),
 			PHP_URL_HOST
 		);
