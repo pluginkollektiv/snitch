@@ -2,6 +2,7 @@
 /.git
 /.github
 /.wordpress-org
+/dist
 /node_modules
 /vendor
 
