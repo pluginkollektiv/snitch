@@ -1,11 +1,11 @@
 # Snitch #
 * Contributors:      pluginkollektiv
 * Donate link:       https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TD4AMD2D8EMZW
-* Tags:              sniffer, snitch, network, monitoring, firewall, GDPR
+* Tags:              sniffer, network, monitoring, firewall, GDPR
 * Requires at least: 3.8
-* Tested up to:      6.4
+* Tested up to:      6.8
 * Requires PHP:      5.2.4
-* Stable tag:        1.2.0
+* Stable tag:        1.2.1
 * License:           GPLv3 or later
 * License URI:       https://www.gnu.org/licenses/gpl-3.0
 
@@ -96,6 +96,13 @@ Please report security bugs found in the source code of the Snitch plugin throug
 
 
 ## Changelog ##
+
+### 1.2.1 ###
+* Tested up to WordPress 6.8
+* Minor code-style adjustments
+* Add plural translation to "seconds"
+* Slashes in file paths are no longer removed (output issues on Windows systems)
+* Added link to Patchstack mVDP
 
 ### 1.2.0 ###
 * Shows schema of request (http/https)

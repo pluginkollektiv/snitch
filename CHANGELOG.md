@@ -1,5 +1,19 @@
 # Snitch changelog
 
+## 1.2.1
+* **English**
+  * Tested up to WordPress 6.8
+  * Minor code-style adjustments (#51)
+  * Add plural translation to "seconds" (#52)
+  * Slashes in file paths are no longer removed (output issues on Windows systems) (#53) (#54)
+  * Added link to Patchstack mVDP (#56)
+* **Deutsch**
+  * Getestet bis WordPress 6.8
+  * Kleinere Code-Style Anpassungen (#51)
+  * Plural Übersetzung für "Seconds" hinzugefügt (#52)
+  * Slashes in Dateipfaden werden nicht mehr entfernt (Anzeigefehler Windows-Systemen) (#53) (#54)
+  * Link zu Patchstack mVDP hinzugefügt (#56)
+
 ## 1.2.0
 * **English**
   * Shows schema of request (http/https)
