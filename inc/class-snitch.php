@@ -226,7 +226,7 @@ class Snitch {
 		/* Get role */
 		$role = get_role( $role );
 
-		/* Avaliable caps */
+		/* Available caps */
 		$caps = array(
 			'edit_snitchs',
 			'edit_snitch',
@@ -241,14 +241,8 @@ class Snitch {
 		);
 
 		/* Loop & set caps */
-		foreach ( $caps as $caps ) {
-			call_user_func(
-				array(
-					$role,
-					$action . '_cap',
-				),
-				$caps
-			);
+		foreach ( $caps as $cap ) {
+			call_user_func( array( $role, $action . '_cap' ), $cap );
 		}
 	}
 
