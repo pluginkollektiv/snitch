@@ -74,127 +74,40 @@ class Snitch_CPT {
 		}
 
 		/* CSS */
-		add_action(
-			'admin_print_styles-edit.php',
-			array(
-				__CLASS__,
-				'add_css',
-			)
-		);
+		add_action( 'admin_print_styles-edit.php', array( __CLASS__, 'add_css' ) );
 
 		/* Bulk action */
-		add_action(
-			'load-edit.php',
-			array(
-				__CLASS__,
-				'bulk_action',
-			)
-		);
+		add_action( 'load-edit.php', array( __CLASS__, 'bulk_action' ) );
 
 		/* Admin notice */
-		add_action(
-			'admin_notices',
-			array(
-				__CLASS__,
-				'updated_notice',
-			)
-		);
-		add_action(
-			'updated_notice',
-			array(
-				__CLASS__,
-				'updated_notice',
-			)
-		);
+		add_action( 'admin_notices', array( __CLASS__, 'updated_notice' ) );
+		add_action( 'updated_notice', array( __CLASS__, 'updated_notice' ) );
 
 		/* Hide menu item */
-		add_action(
-			'admin_menu',
-			array(
-				__CLASS__,
-				'hide_menu',
-			)
-		);
+		add_action( 'admin_menu', array( __CLASS__, 'hide_menu' ) );
 
 		/* Action dropdown */
-		add_filter(
-			'bulk_actions-edit-snitch',
-			'__return_empty_array'
-		);
+		add_filter( 'bulk_actions-edit-snitch', '__return_empty_array' );
 
 		/* Actions above table */
-		add_action(
-			'restrict_manage_posts',
-			array(
-				__CLASS__,
-				'actions_above_table',
-			)
-		);
+		add_action( 'restrict_manage_posts', array( __CLASS__, 'actions_above_table' ) );
 
 		/* Vars for column filter */
-		add_filter(
-			'parse_query',
-			array(
-				__CLASS__,
-				'expand_query_vars',
-			)
-		);
+		add_filter( 'parse_query', array( __CLASS__, 'expand_query_vars' ) );
 
 		/* Vars for search and order by */
-		add_filter(
-			'request',
-			array(
-				__CLASS__,
-				'orderby_search_columns',
-			)
-		);
+		add_filter( 'request', array( __CLASS__, 'orderby_search_columns' ) );
 
 		/* Custom columns */
-		add_filter(
-			'manage_snitch_posts_columns',
-			array(
-				__CLASS__,
-				'manage_columns',
-			)
-		);
-		add_filter(
-			'manage_edit-snitch_sortable_columns',
-			array(
-				__CLASS__,
-				'sortable_columns',
-			)
-		);
-		add_action(
-			'manage_snitch_posts_custom_column',
-			array(
-				__CLASS__,
-				'custom_column',
-			),
-			10,
-			2
-		);
+		add_filter( 'manage_snitch_posts_columns', array( __CLASS__, 'manage_columns' ) );
+		add_filter( 'manage_edit-snitch_sortable_columns', array( __CLASS__, 'sortable_columns' ) );
+		add_action( 'manage_snitch_posts_custom_column', array( __CLASS__, 'custom_column' ), 10, 2 );
 
 		/* View links */
-		add_filter(
-			'views_edit-snitch',
-			array(
-				__CLASS__,
-				'views_edit',
-			),
-			10,
-			1
-		);
+		add_filter( 'views_edit-snitch', array( __CLASS__, 'views_edit' ) );
 
 		/*  row actions */
-		add_filter(
-			'post_row_actions',
-			array(
-				__CLASS__,
-				'row_actions',
-			),
-			10,
-			2
-		);
+		add_filter( 'post_row_actions', array( __CLASS__, 'row_actions' ), 10, 2 );
 	}
 
 	/**
@@ -302,13 +215,7 @@ class Snitch_CPT {
 
 		/* CPT search */
 		if ( ! empty( $vars['s'] ) ) {
-			add_filter(
-				'get_meta_sql',
-				array(
-					__CLASS__,
-					'modify_and_or',
-				)
-			);
+			add_filter( 'get_meta_sql', array( __CLASS__, 'modify_and_or' ) );
 
 			/* Search in urls */
 			$meta_query = array(
@@ -995,10 +902,7 @@ class Snitch_CPT {
 	 */
 	public static function cleanup_items() {
 		self::delete_items(
-			(int) apply_filters(
-				'snitch_cleanup_items',
-				200
-			)
+			(int) apply_filters( 'snitch_cleanup_items', 200 )
 		);
 	}
 

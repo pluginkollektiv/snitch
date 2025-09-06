@@ -32,45 +32,16 @@ class Snitch {
 	 */
 	public function __construct() {
 		/* Register CPT */
-		add_action(
-			'init',
-			array(
-				'Snitch_CPT',
-				'instance',
-			),
-			1
-		);
+		add_action( 'init', array( 'Snitch_CPT', 'instance' ), 1 );
 
 		/* HTTP Request */
-		add_filter(
-			'pre_http_request',
-			array(
-				'Snitch_HTTP',
-				'inspect_request',
-			),
-			10,
-			3
-		);
+		add_filter( 'pre_http_request', array( 'Snitch_HTTP', 'inspect_request' ), 10, 3 );
 
 		/* HTTP API */
-		add_action(
-			'http_api_debug',
-			array(
-				'Snitch_HTTP',
-				'log_response',
-			),
-			10,
-			5
-		);
+		add_action( 'http_api_debug', array( 'Snitch_HTTP', 'log_response' ), 10, 5 );
 
 		/* Cronjob */
-		add_action(
-			'snitch_cleanup',
-			array(
-				'Snitch_CPT',
-				'cleanup_items',
-			)
-		);
+		add_action( 'snitch_cleanup', array( 'Snitch_CPT', 'cleanup_items' ) );
 
 		/* Admin only */
 		if ( ! is_admin() ) {
@@ -86,47 +57,15 @@ class Snitch {
 		}
 
 		/* CSS */
-		add_action(
-			'admin_print_styles',
-			array(
-				__CLASS__,
-				'add_css',
-			)
-		);
+		add_action( 'admin_print_styles', array( __CLASS__, 'add_css' ) );
 
 		/* Admin notice */
-		add_action(
-			'admin_notices',
-			array(
-				__CLASS__,
-				'updated_notice',
-			)
-		);
-		add_action(
-			'network_admin_notices',
-			array(
-				__CLASS__,
-				'updated_notice',
-			)
-		);
+		add_action( 'admin_notices', array( __CLASS__, 'updated_notice' ) );
+		add_action( 'network_admin_notices', array( __CLASS__, 'updated_notice' ) );
 
 		/* Meta links */
-		add_filter(
-			'plugin_row_meta',
-			array(
-				__CLASS__,
-				'meta_links',
-			),
-			10,
-			2
-		);
-		add_filter(
-			'plugin_action_links_' . SNITCH_BASE,
-			array(
-				__CLASS__,
-				'action_links',
-			)
-		);
+		add_filter( 'plugin_row_meta', array( __CLASS__, 'meta_links' ), 10, 2 );
+		add_filter( 'plugin_action_links_' . SNITCH_BASE, array( __CLASS__, 'action_links' ) );
 
 		/* Load lang */
 		load_plugin_textdomain( 'snitch' );
@@ -327,11 +266,7 @@ class Snitch {
 
 		/* Init cronjob */
 		if ( ! wp_next_scheduled( 'snitch_cleanup' ) ) {
-			wp_schedule_event(
-				time(),
-				'daily',
-				'snitch_cleanup'
-			);
+			wp_schedule_event( time(), 'daily', 'snitch_cleanup' );
 		}
 	}
 

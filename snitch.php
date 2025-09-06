@@ -44,36 +44,12 @@ define( 'SNITCH_AUTHORIZED', -1 );
 define( 'SNITCH_URL', plugin_dir_url( __FILE__ ) );
 
 /* Actions */
-add_action(
-	'plugins_loaded',
-	array(
-		'Snitch',
-		'instance',
-	)
-);
+add_action( 'plugins_loaded', array( 'Snitch', 'instance' ) );
 
 /* Hooks */
-register_activation_hook(
-	__FILE__,
-	array(
-		'Snitch',
-		'activation',
-	)
-);
-register_deactivation_hook(
-	__FILE__,
-	array(
-		'Snitch',
-		'deactivation',
-	)
-);
-register_uninstall_hook(
-	__FILE__,
-	array(
-		'Snitch',
-		'uninstall',
-	)
-);
+register_activation_hook( __FILE__, array( 'Snitch', 'activation' ) );
+register_deactivation_hook( __FILE__, array( 'Snitch', 'deactivation' ) );
+register_uninstall_hook( __FILE__, array( 'Snitch', 'uninstall' ) );
 
 
 /* Autoload Init */
