@@ -17,22 +17,31 @@ class Snitch {
 	/**
 	 * Pseudo-Konstruktor der Klasse
 	 *
-	 * @since   0.0.1
-	 * @change  0.0.1
+	 * @since 0.0.1
+	 * @deprecated 1.2.1 use {@link Snitch::init()} instead
 	 */
 	public static function instance() {
-		new self();
+		self::init();
 	}
 
 	/**
 	 * Konstruktor der Klasse
 	 *
-	 * @since   0.0.1
-	 * @change  1.0.5
+	 * @since 0.0.1
+	 * @deprecated 1.2.1 use {@link Snitch::init()} instead
 	 */
 	public function __construct() {
+		self::init();
+	}
+
+	/**
+	 * Initialize the plugin.
+	 *
+	 * @since 1.2.1 logic extracted from constructor
+	 */
+	public static function init() {
 		/* Register CPT */
-		add_action( 'init', array( 'Snitch_CPT', 'instance' ), 1 );
+		add_action( 'init', array( 'Snitch_CPT', 'init' ), 1 );
 
 		/* HTTP Request */
 		add_filter( 'pre_http_request', array( 'Snitch_HTTP', 'inspect_request' ), 10, 3 );

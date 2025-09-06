@@ -27,19 +27,28 @@ class Snitch_CPT {
 	 * Pseudo-Konstruktor der Klasse
 	 *
 	 * @since   0.0.1
-	 * @change  0.0.1
+	 * @deprecated 1.2.1 use {@link Snitch_CPT::init()} instead
 	 */
 	public static function instance() {
-		new self();
+		self::init();
 	}
 
 	/**
 	 * Registrierung der Post Types und Aktionen
 	 *
-	 * @since   0.0.1
-	 * @change  1.1.3
+	 * @since 0.0.1
+	 * @deprecated 1.2.1 use {@link Snitch_CPT::init()} instead
 	 */
 	public function __construct() {
+		self::init();
+	}
+
+	/**
+	 * Initialize custom post types and actions.
+	 *
+	 * @since 1.2.1 logic extracted from constructor
+	 */
+	public static function init() {
 		/* Set plugin options */
 		self::$options = Snitch::get_options();
 

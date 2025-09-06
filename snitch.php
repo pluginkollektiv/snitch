@@ -44,7 +44,7 @@ define( 'SNITCH_AUTHORIZED', -1 );
 define( 'SNITCH_URL', plugin_dir_url( __FILE__ ) );
 
 /* Actions */
-add_action( 'plugins_loaded', array( 'Snitch', 'instance' ) );
+add_action( 'plugins_loaded', array( 'Snitch', 'init' ) );
 
 /* Hooks */
 register_activation_hook( __FILE__, array( 'Snitch', 'activation' ) );
