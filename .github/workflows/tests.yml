@@ -13,9 +13,9 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
       - name: Code style checks for PHP and CSS
         run: |
           composer install
-          npm ci
+          npm ci --ignore-scripts
           composer lint-all
