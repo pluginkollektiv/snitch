@@ -1,7 +1,7 @@
 {
   "private": true,
   "devDependencies": {
-    "@wordpress/stylelint-config": "^23.28.0",
+    "@wordpress/stylelint-config": "^23.33.0",
     "stylelint": "^16.26.1"
   }
 }
