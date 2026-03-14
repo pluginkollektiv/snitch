@@ -3,7 +3,7 @@
 * Donate link:       https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TD4AMD2D8EMZW
 * Tags:              sniffer, network, monitoring, firewall, GDPR
 * Requires at least: 3.8
-* Tested up to:      6.8
+* Tested up to:      6.9
 * Requires PHP:      5.2.4
 * Stable tag:        1.2.1
 * License:           GPLv3 or later
