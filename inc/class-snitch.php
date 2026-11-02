@@ -126,11 +126,11 @@ class Snitch {
 			array(
 				sprintf(
 					'<a href="%s">%s</a>',
-					add_query_arg(
-						array(
-							'post_type' => 'snitch',
-						),
-						admin_url( 'edit.php' )
+					esc_url(
+						add_query_arg(
+							array( 'post_type' => 'snitch' ),
+							admin_url( 'edit.php' )
+						)
 					),
 					esc_html__( 'Connections', 'snitch' )
 				),
