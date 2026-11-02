@@ -8,11 +8,11 @@ jobs:
     name: Push to master
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.2'
+        php-version: '8.4'
         tools: composer
     - name: Build
       run: composer install --no-interaction

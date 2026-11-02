@@ -74,6 +74,6 @@
 }
 
 #TB_ajaxContent pre {
+	overflow-wrap: break-word;
 	white-space: pre-wrap;
-	word-wrap: break-word;
 }
